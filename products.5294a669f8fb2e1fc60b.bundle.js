@@ -1,33 +1,4 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	function webpackJsonpCallback(data) {
-/******/ 		var chunkIds = data[0];
-/******/ 		var moreModules = data[1];
-/******/
-/******/
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 	};
-/******/
 /******/ 	function hotDisposeChunk(chunkId) {
 /******/ 		delete installedChunks[chunkId];
 /******/ 	}
@@ -92,7 +63,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "b50e026b9e245bcb9751";
+/******/ 	var hotCurrentHash = "5294a669f8fb2e1fc60b";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -287,7 +258,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			for(var chunkId in installedChunks)
+/******/ 			var chunkId = "products";
 /******/ 			// eslint-disable-next-line no-lone-blocks
 /******/ 			{
 /******/ 				/*globals chunkId */
@@ -735,20 +706,6 @@
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 	// Promise = chunk loading, 0 = chunk loaded
-/******/ 	var installedChunks = {
-/******/ 		"app": 0
-/******/ 	};
-/******/
-/******/
-/******/
-/******/ 	// script path function
-/******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"news":"news"}[chunkId]||chunkId) + "." + hotCurrentHash + ".bundle.js"
-/******/ 	}
-/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
@@ -776,67 +733,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 /******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var promises = [];
-/******/
-/******/
-/******/ 		// JSONP chunk loading for javascript
-/******/
-/******/ 		var installedChunkData = installedChunks[chunkId];
-/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
-/******/
-/******/ 			// a Promise means "currently loading".
-/******/ 			if(installedChunkData) {
-/******/ 				promises.push(installedChunkData[2]);
-/******/ 			} else {
-/******/ 				// setup Promise in chunk cache
-/******/ 				var promise = new Promise(function(resolve, reject) {
-/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 				});
-/******/ 				promises.push(installedChunkData[2] = promise);
-/******/
-/******/ 				// start chunk loading
-/******/ 				var script = document.createElement('script');
-/******/ 				var onScriptComplete;
-/******/
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 				script.src = jsonpScriptSrc(chunkId);
-/******/
-/******/ 				// create error before stack unwound to get useful stacktrace later
-/******/ 				var error = new Error();
-/******/ 				onScriptComplete = function (event) {
-/******/ 					// avoid mem leaks in IE.
-/******/ 					script.onerror = script.onload = null;
-/******/ 					clearTimeout(timeout);
-/******/ 					var chunk = installedChunks[chunkId];
-/******/ 					if(chunk !== 0) {
-/******/ 						if(chunk) {
-/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 							var realSrc = event && event.target && event.target.src;
-/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 							error.name = 'ChunkLoadError';
-/******/ 							error.type = errorType;
-/******/ 							error.request = realSrc;
-/******/ 							chunk[1](error);
-/******/ 						}
-/******/ 						installedChunks[chunkId] = undefined;
-/******/ 					}
-/******/ 				};
-/******/ 				var timeout = setTimeout(function(){
-/******/ 					onScriptComplete({ type: 'timeout', target: script });
-/******/ 				}, 120000);
-/******/ 				script.onerror = script.onload = onScriptComplete;
-/******/ 				document.head.appendChild(script);
-/******/ 			}
-/******/ 		}
-/******/ 		return Promise.all(promises);
-/******/ 	};
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -890,22 +786,12 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
-/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
-/******/ 	jsonpArray.push = webpackJsonpCallback;
-/******/ 	jsonpArray = jsonpArray.slice();
-/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = oldJsonpFunction;
-/******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./src/index.js")(__webpack_require__.s = "./src/index.js");
+/******/ 	return hotCreateRequire("./src/products/index.js")(__webpack_require__.s = "./src/products/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -921,25 +807,14 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css":
-/*!************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src!./src/components/home/home.css ***!
-  \************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/products/assets/index.css":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src!./src/products/assets/index.css ***!
+  \*************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ../../assets/images/pageImg.png */ \"./src/assets/images/pageImg.png\"));\n// Module\nexports.push([module.i, \".page_home>div {\\n    position: relative;\\n    display: flex;\\n    align-items: center;\\n    /* justify-content: center; */\\n    box-sizing: content-box;\\n}\\n\\n.page_home>div>img {\\n    position: absolute;\\n}\\n\\n.page_home>div>div {\\n    position: relative;\\n    z-index: 1;\\n}\\n\\n.page_home h1 {\\n    color: #000000;\\n}\\n\\n.page_home h2 {\\n    color: #007AFF;\\n}\\n\\n.system,\\n.cloud-clinic {\\n    background: linear-gradient(180deg, rgba(161, 196, 253, 1) 0%, rgba(194, 233, 251, 1) 100%);\\n}\\n\\n.page_home p {\\n    font-size: 20px;\\n    max-width: 3.41rem;\\n    margin: 20px 0 27px;\\n}\\n\\n.erp p {\\n    margin: 0;\\n}\\n\\n.erp .erp-description {\\n    color: #8E93BC;\\n    font-size: 18px;\\n    margin: .1rem 0 .35rem;\\n}\\n\\n.erp-description::after {\\n    content: '';\\n    display: block;\\n    height: 4px;\\n    width: .64rem;\\n    background: #3CB379;\\n    margin: .2rem 0 0;\\n}\\n\\n.page_home a {\\n    color: #007AFF;\\n    font-size: 20px;\\n}\\n\\n.erp a {\\n    display: inline-block;\\n    padding: .13rem .32rem;\\n    color: #FFFFFF;\\n    background: #007AFF;\\n    border-radius: .06rem;\\n    font-size: 16px;\\n}\\n\\n.erp a:hover {\\n    /*  */\\n    background-color: #2268D5;\\n}\\n\\n.page_home .erp {\\n    position: relative;\\n    padding: 1.08rem 0 .14rem 1.2rem;\\n    justify-content: space-between;\\n    align-items: flex-start;\\n    background: no-repeat center/100% url(\" + ___CSS_LOADER_URL___0___ + \");\\n    box-sizing: content-box;\\n    min-height: 5.69rem;\\n}\\n\\n.page_home .erp>div {\\n    margin: .66rem 0 0;\\n    position: relative;\\n    z-index: 1;\\n}\\n\\n.page_home .instrument {\\n    padding: .6rem 1.3rem .6rem 1.2rem;\\n    min-height: 5rem;\\n    justify-content: flex-end;\\n\\n}\\n\\n.page_home .system {\\n    padding: .6rem 1.2rem .6rem 1.3rem;\\n    min-height: 4.99rem;\\n}\\n\\n.page_home .logistics {\\n    padding: .7rem 2.33rem .76rem 1.53rem;\\n    min-height: 4.74rem;\\n    justify-content: flex-end;\\n}\\n\\n.page_home .cloud-clinic {\\n    padding: .42rem 0;\\n    min-height: 3.39rem;\\n    flex-direction: column;\\n    justify-content: flex-start;\\n}\\n\\n.erp img {\\n    width: 6.63rem;\\n    height: auto;\\n    position: absolute;\\n    right: 0;\\n    top: 1.08rem;\\n    transform: translate(0, 0);\\n    -webkit-animation: upDown 5s linear 1s infinite;\\n            animation: upDown 5s linear 1s infinite;\\n}\\n\\n.instrument img {\\n    top: .6rem;\\n    left: 1.2rem;\\n    width: 7.4rem;\\n    height: 5rem;\\n    /* margin: 0 1.09rem 0 0; */\\n}\\n\\n.system img {\\n    top: .6rem;\\n    right: 1.2rem;\\n    width: 7.44rem;\\n    height: 4.99rem;\\n    margin: 0 0 0 1.05rem;\\n}\\n\\n.logistics img {\\n    top: .7rem;\\n    left: 1.53rem;\\n    width: 5.08rem;\\n    height: 4.74rem;\\n    margin: 0 2.05rem 0 0;\\n}\\n\\n.page_home .cloud-clinic>div {\\n    align-self: stretch;\\n    text-align: center;\\n}\\n\\n.page_home .cloud-clinic p {\\n    max-width: 5.3rem;\\n    margin: .1rem auto .15rem;\\n}\\n\\n.cloud-clinic img {\\n    width: 11.12rem;\\n    height: auto;\\n    margin: .32rem 0 0;\\n}\\n\\n.page_home .cloud-clinic img {\\n    position: relative;\\n}\\n\\n@-webkit-keyframes upDown {\\n    0% {\\n        transform: translate(0, 0)\\n    }\\n\\n    25% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    28% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    50% {\\n        transform: translate(0, 0)\\n    }\\n\\n    75% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    80% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    100% {\\n        transform: translate(0, 0)\\n    }\\n\\n}\\n\\n@keyframes upDown {\\n    0% {\\n        transform: translate(0, 0)\\n    }\\n\\n    25% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    28% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    50% {\\n        transform: translate(0, 0)\\n    }\\n\\n    75% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    80% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    100% {\\n        transform: translate(0, 0)\\n    }\\n\\n}\\n\\n@media (max-width: 768px) {\\n\\n    .page_home a {\\n        font-size: 16px;\\n    }\\n\\n    .page_home p {\\n        font-size: 14px;\\n        margin: 16px 0 20px;\\n        max-width: 188px;\\n    }\\n\\n    .erp .erp-description {\\n        font-size: 12px;\\n    }\\n\\n    .erp a {\\n        /* width: 64px;\\n        line-height: 24px; */\\n        font-size: 12px;\\n        border-radius: 4px;\\n    }\\n\\n    .page_home .erp img {\\n        width: 6rem;\\n        height: auto;\\n        top: auto;\\n        bottom: 1rem;\\n    }\\n\\n    .page_home .erp>div {\\n        margin: .6rem 0 0;\\n        position: relative;\\n        z-index: 1;\\n    }\\n\\n    .page_home>div>img {\\n        top: 50%;\\n        transform: translateY(-50%);\\n    }\\n\\n    .instrument img {\\n        left: .6rem;\\n        width: 5rem;\\n        height: auto;\\n    }\\n\\n    .page_home .instrument {\\n        padding: .6rem .6rem;\\n    }\\n\\n    .system img {\\n        right: .6rem;\\n        width: 6rem;\\n        height: auto;\\n    }\\n\\n    .page_home .system {\\n        padding: .6rem;\\n    }\\n\\n    .logistics img {\\n        left: .6rem;\\n        width: 5rem;\\n        height: auto;\\n    }\\n\\n    .page_home .logistics {\\n        padding: .6rem;\\n    }\\n\\n    .page_home .cloud-clinic {\\n        padding: .6rem;\\n    }\\n\\n    .page_home .cloud-clinic p {\\n        max-width: 100%;\\n    }\\n\\n    .page_home .cloud-clinic img {\\n        transform: translate(0, 0)\\n    }\\n\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/home/home.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css":
-/*!******************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src!./src/subPage/cloud-clinic/style.css ***!
-  \******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./images/problemImg.png */ \"./src/subPage/cloud-clinic/images/problemImg.png\"));\nvar ___CSS_LOADER_URL___1___ = getUrl(__webpack_require__(/*! ./images/ui.png */ \"./src/subPage/cloud-clinic/images/ui.png\"));\nvar ___CSS_LOADER_URL___2___ = getUrl(__webpack_require__(/*! ./images/om.png */ \"./src/subPage/cloud-clinic/images/om.png\"));\nvar ___CSS_LOADER_URL___3___ = getUrl(__webpack_require__(/*! ./images/bm.png */ \"./src/subPage/cloud-clinic/images/bm.png\"));\nvar ___CSS_LOADER_URL___4___ = getUrl(__webpack_require__(/*! ./images/rule.png */ \"./src/subPage/cloud-clinic/images/rule.png\"));\n// Module\nexports.push([module.i, \"\\n.page-title p {\\n    color: #666666;\\n    font-size: 14px;\\n    max-width: 4.5rem;\\n    margin: 20px 0 0;\\n}\\n\\n.page-title div{\\n    display: inline-block;\\n    vertical-align: text-top;\\n}\\n\\n.title-text {\\n    margin: 20px 0.73rem 0 0;\\n}\\n\\n.page-title img {\\n    width: 6.67rem;\\n    height: 2.04rem;\\n}\\n\\n.page-title {\\n    padding: 0.96rem 0 0.50rem 1.3rem;\\n    background: linear-gradient(180deg, rgba(161, 196, 253, 1) 0%, rgba(194, 233, 251, 1) 100%);\\n    /* background-image: url('../home/assets/cloud-clinic.png');\\n    background-size: 6.67rem 2.04rem;\\n    background-repeat: no-repeat;\\n    background-position: 0.96rem 6.53rem; */\\n}\\n\\n.cloud-clinic-problem, .cloud-clinic-solution {\\n    padding: .8rem 0 1rem;\\n    text-align: center;\\n}\\n\\n.cloud-clinic-problem {\\n    background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat center;\\n    background-size: 100%;\\n}\\n\\n.cloud-clinic-problem > div {\\n    display: flex;\\n    margin: .6rem 0 0;\\n    padding: 0 1.2rem 0;\\n}\\n\\n.cloud-clinic-problem > div > div {\\n    margin-right: .75rem;\\n}\\n\\n.cloud-clinic-problem > div > div:last-of-type {\\n    margin-right: 0;\\n}\\n\\n.cloud-clinic-problem h6 {\\n    margin: 0 0 20px;\\n    font-weight: 500;\\n}\\n\\n.cloud-clinic-problem p {\\n    line-height: 1.75;\\n}\\n\\n\\n.cloud-clinic-solution {\\n    padding: .8rem 0 1.2rem;\\n}\\n\\n.cloud-clinic-solution > div {\\n    display: flex;\\n    justify-content: center;\\n    margin: 35px 0 0;\\n}\\n\\n.cloud-clinic-solution > div > div {\\n    width: 2.85rem;\\n    height: 2.98rem;\\n    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.1);\\n    margin-right: 20px;\\n    padding: 0 .4rem 0;\\n    box-sizing: border-box;\\n}\\n\\n.lightweight {\\n    background: url(\" + ___CSS_LOADER_URL___1___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.convenient {\\n    background: url(\" + ___CSS_LOADER_URL___2___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.dispatch-free {\\n    background: url(\" + ___CSS_LOADER_URL___3___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.unified-management {\\n    background: url(\" + ___CSS_LOADER_URL___4___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.cloud-clinic-solution > div > div:last-of-type {\\n    margin-right: 0;\\n}\\n\\n.cloud-clinic-solution h6 {\\n    margin: 1.29rem 0 .2rem;\\n}\\n\\n@media (max-width: 768px) {\\n    .page-title {\\n        padding: 0.96rem .6rem 0.50rem;\\n    }\\n\\n    .title-text {\\n        margin: 0 0 20px;\\n    }\\n    .page-title div{\\n        display: block;\\n        text-align: center;\\n    }\\n\\n    .page-title p {\\n        max-width: none;\\n    }\\n\\n    .cloud-clinic-problem {\\n        background: none;\\n    }\\n\\n    .cloud-clinic-problem > div {\\n        flex-wrap: wrap;\\n    }\\n\\n    .cloud-clinic-problem h6 {\\n        margin: 20px 0 10px;\\n    }\\n\\n    .cloud-clinic-solution > div {\\n        flex-wrap: wrap;\\n    }\\n\\n    .cloud-clinic-solution > div > div {\\n        width: 75vw;\\n        height: auto;\\n        margin: 0 0 20px 0;\\n        padding: 0 10px 20px;\\n    }\\n\\n    .lightweight, .convenient, .dispatch-free, .unified-management {\\n        background-size: 20px auto;\\n    }\\n\\n    .cloud-clinic-solution h6 {\\n        margin: 50px 0 10px;\\n    }\\n}\\n\\n\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/style.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ../../assets/images/problemImg.png */ \"./src/assets/images/problemImg.png\"));\nvar ___CSS_LOADER_URL___1___ = getUrl(__webpack_require__(/*! ../assets/imgs/gpsImg.png */ \"./src/products/assets/imgs/gpsImg.png\"));\nvar ___CSS_LOADER_URL___2___ = getUrl(__webpack_require__(/*! ../assets/imgs/slImg.png */ \"./src/products/assets/imgs/slImg.png\"));\nvar ___CSS_LOADER_URL___3___ = getUrl(__webpack_require__(/*! ../assets/imgs/scImg.png */ \"./src/products/assets/imgs/scImg.png\"));\nvar ___CSS_LOADER_URL___4___ = getUrl(__webpack_require__(/*! ../assets/imgs/amImg.png */ \"./src/products/assets/imgs/amImg.png\"));\nvar ___CSS_LOADER_URL___5___ = getUrl(__webpack_require__(/*! ../assets/imgs/saImg.png */ \"./src/products/assets/imgs/saImg.png\"));\nvar ___CSS_LOADER_URL___6___ = getUrl(__webpack_require__(/*! ../assets/imgs/ccImg.png */ \"./src/products/assets/imgs/ccImg.png\"));\nvar ___CSS_LOADER_URL___7___ = getUrl(__webpack_require__(/*! ../assets/imgs/tsImg.png */ \"./src/products/assets/imgs/tsImg.png\"));\nvar ___CSS_LOADER_URL___8___ = getUrl(__webpack_require__(/*! ../assets/imgs/cmImg.png */ \"./src/products/assets/imgs/cmImg.png\"));\nvar ___CSS_LOADER_URL___9___ = getUrl(__webpack_require__(/*! ../assets/imgs/pmImg.png */ \"./src/products/assets/imgs/pmImg.png\"));\nvar ___CSS_LOADER_URL___10___ = getUrl(__webpack_require__(/*! ../assets/imgs/gmImg.png */ \"./src/products/assets/imgs/gmImg.png\"));\nvar ___CSS_LOADER_URL___11___ = getUrl(__webpack_require__(/*! ../assets/imgs/msImg.png */ \"./src/products/assets/imgs/msImg.png\"));\nvar ___CSS_LOADER_URL___12___ = getUrl(__webpack_require__(/*! ../assets/imgs/bcmImg.png */ \"./src/products/assets/imgs/bcmImg.png\"));\nvar ___CSS_LOADER_URL___13___ = getUrl(__webpack_require__(/*! ../assets/imgs/poImg.png */ \"./src/products/assets/imgs/poImg.png\"));\nvar ___CSS_LOADER_URL___14___ = getUrl(__webpack_require__(/*! ../assets/imgs/ewImg.png */ \"./src/products/assets/imgs/ewImg.png\"));\nvar ___CSS_LOADER_URL___15___ = getUrl(__webpack_require__(/*! ../assets/imgs/psImg.png */ \"./src/products/assets/imgs/psImg.png\"));\nvar ___CSS_LOADER_URL___16___ = getUrl(__webpack_require__(/*! ../assets/imgs/groupingImg.png */ \"./src/products/assets/imgs/groupingImg.png\"));\n// Module\nexports.push([module.i, \".enterprise-system_title {\\n    position: relative;\\n    padding: 1.15rem 1.3rem;\\n    box-sizing: content-box;\\n    background: -webkit-linear-gradient(top, #A1C4FD, #C2E9FB);\\n}\\n\\n.photo {\\n    position: absolute;\\n    width: 2.81rem;\\n    height: auto;\\n    left: 11.16rem;\\n    top: .55rem;\\n    z-index: 3;\\n}\\n\\n.enterprise-system_title>h2 {\\n    margin: 0 0 .2rem;\\n}\\n\\n.enterprise-system_title>p {\\n    max-width: 5.18rem;\\n    line-height: 1.8;\\n}\\n\\n.page_enterprise-system>ul {\\n    display: flex;\\n    justify-content: center;\\n}\\n\\n.page_enterprise-system li {\\n    width: 2.4rem;\\n    line-height: .64rem;\\n    color: #333333;\\n    font-size: 16px;\\n    text-align: center;\\n    position: relative;\\n}\\n\\n.page_enterprise-system .activeTab {\\n    color: #007AFF;\\n}\\n\\n.page_enterprise-system .activeTab::after {\\n    content: '';\\n    display: block;\\n    width: 100%;\\n    height: 3px;\\n    background: #007AFF;\\n    position: absolute;\\n    bottom: 0;\\n}\\n\\n.page_enterprise-system .activeTab a {\\n    color: #007AFF;\\n}\\n\\n.page_enterprise-system a {\\n    color: inherit;\\n}\\n\\n.instryments-problem {\\n    box-sizing: border-box;\\n    padding: .8rem 0 0;\\n    text-align: center;\\n    background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat center/100%;\\n}\\n\\n.instryments-solution>h6 {\\n    /* font-size: 18px;\\n    color: #333333; */\\n    margin: 20px 0 52px;\\n}\\n\\n.instryments-problem>div,\\n.instryments-solution {\\n    text-align: center;\\n}\\n\\n.instryments-problem>div {\\n    display: flex;\\n    flex-wrap: wrap;\\n    align-items: center;\\n    justify-content: center;\\n}\\n\\n.instryments-problem>div>div {\\n    display: inline-flex;\\n    /* vertical-align: middle; */\\n    margin: .64rem .65rem .55rem 0;\\n    padding: 0 .5rem;\\n    font-size: 18px;\\n    color: #666666;\\n    width: 3.6rem;\\n    height: 1.28rem;\\n    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);\\n    background: #F8F8FA;\\n    justify-content: center;\\n    align-items: center;\\n    box-sizing: border-box;\\n}\\n\\n.instryments-problem>div>div:last-of-type {\\n    margin-right: 0;\\n}\\n\\n.instryments-solution {\\n    padding: .8rem .6rem .7rem;\\n}\\n\\n.instryments-solution>div {\\n    display: flex;\\n    flex-wrap: wrap;\\n    padding: 0 .6rem;\\n    justify-content: space-between;\\n}\\n\\n.instryments-solution>div>div {\\n    width: 5.4rem;\\n    text-align: left;\\n    margin: 0 0 .6rem 0;\\n    max-height: .7rem;\\n    padding: 0 0 0 .62rem;\\n    box-sizing: border-box;\\n    position: relative;\\n}\\n\\n.instryments-solution>div>div::before {\\n    content: '';\\n    position: absolute;\\n    left: 0;\\n    width: .42rem;\\n    min-width: 20px;\\n    height: 100%;\\n    background-repeat: no-repeat;\\n    background-position: left top;\\n    background-size: 100% auto;\\n}\\n\\n.instryments-solution p {\\n    color: #666666;\\n    margin: .1rem 0 0;\\n    line-height: 1.8;\\n}\\n\\n.gps::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___1___ + \");\\n}\\n\\n.shopping-list::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___2___ + \");\\n}\\n\\n.settlement-control::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___3___ + \");\\n}\\n\\n.authority-management::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___4___ + \");\\n}\\n\\n.strategic-analysis::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___5___ + \");\\n}\\n\\n.channel-control::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___6___ + \");\\n}\\n\\n.traceability-system::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___7___ + \");\\n}\\n\\n.credit-control::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___8___ + \");\\n}\\n\\n.promotion-management::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___9___ + \");\\n}\\n\\n.product-management::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___10___ + \");\\n}\\n\\n.multi-service::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___11___ + \");\\n}\\n\\n.bar-code-management::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___12___ + \");\\n}\\n\\n.process-oriented::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___13___ + \");\\n}\\n\\n.early-warning::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___14___ + \");\\n}\\n\\n.price-system::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___15___ + \")\\n}\\n\\n.grouping::before {\\n    background-image: url(\" + ___CSS_LOADER_URL___16___ + \");\\n}\\n\\n.instryments-problem > .easing-currence {\\n    opacity: 1;\\n    transform: translate(0, 0);\\n    -webkit-animation: easing .5s linear;\\n            animation: easing .5s linear;\\n}\\n\\n.instryments-solution .easing-currence {\\n    opacity: 1;\\n    transform: translate(0, 0);\\n    -webkit-animation: easing .5s linear;\\n            animation: easing .5s linear;\\n}\\n\\n@-webkit-keyframes easing {\\n    from {\\n        transform: translate(0, 100px);\\n    }\\n\\n    to {\\n        transform: translate(0, 0);\\n    }\\n}\\n\\n@keyframes easing {\\n    from {\\n        transform: translate(0, 100px);\\n    }\\n\\n    to {\\n        transform: translate(0, 0);\\n    }\\n}\\n\\n@media (max-width: 768px) {\\n    .enterprise-system_title {\\n        height: auto;\\n    }\\n\\n    .enterprise-system_title>p {\\n        max-width: 100vw;\\n    }\\n\\n    .page_enterprise-system ul {\\n        justify-content: space-between;\\n        padding: 0 1.6rem;\\n    }\\n\\n    .page_enterprise-system li {\\n        width: auto;\\n        line-height: 48px;\\n    }\\n\\n    .instryments-problem {\\n        background: none;\\n    }\\n\\n    .instryments-solution>div {\\n        margin: 0 auto;\\n    }\\n\\n    .instryments-problem>div>div {\\n        width: 75vw;\\n        height: auto;\\n        padding: 20px 10px;\\n        font-size: 16px;\\n    }\\n\\n    .instryments-solution>div>div {\\n        width: auto;\\n        height: auto;\\n        max-height: none;\\n    }\\n\\n    .instryments-solution>div>div::before {\\n        top: 2px;\\n    }\\n\\n    .instryments-solution>div>div {\\n        padding: 0 0 0 30px;\\n    }\\n\\n    .photo {\\n        position: relative;\\n        z-index: 1;\\n        left: 50%;\\n        top: auto;\\n        width: 4rem;\\n        transform: translate(-50%, 0);\\n        margin: 0 0 10px;\\n    }\\n\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/products/assets/index.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
 
 /***/ }),
 
@@ -1012,17 +887,6 @@ eval("module.exports = __webpack_require__.p + \"imgs/1f2016f9c7c7fda9bc3bb971db
 
 /***/ }),
 
-/***/ "./src/assets/images/cloud-clinic.png":
-/*!********************************************!*\
-  !*** ./src/assets/images/cloud-clinic.png ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/dd745141b8552f6237384b1c9a322740.png\";\n\n//# sourceURL=webpack:///./src/assets/images/cloud-clinic.png?");
-
-/***/ }),
-
 /***/ "./src/assets/images/logo.png":
 /*!************************************!*\
   !*** ./src/assets/images/logo.png ***!
@@ -1045,14 +909,14 @@ eval("module.exports = __webpack_require__.p + \"imgs/a38ed85954027e2eb8c671f16d
 
 /***/ }),
 
-/***/ "./src/assets/images/pageImg.png":
-/*!***************************************!*\
-  !*** ./src/assets/images/pageImg.png ***!
-  \***************************************/
+/***/ "./src/assets/images/problemImg.png":
+/*!******************************************!*\
+  !*** ./src/assets/images/problemImg.png ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"imgs/4e36abc238e95f675cb38639f3e1c832.png\";\n\n//# sourceURL=webpack:///./src/assets/images/pageImg.png?");
+eval("module.exports = __webpack_require__.p + \"imgs/45f97fe8a86cedfe438ecd404cc7184e.png\";\n\n//# sourceURL=webpack:///./src/assets/images/problemImg.png?");
 
 /***/ }),
 
@@ -1115,217 +979,317 @@ eval("__webpack_require__.r(__webpack_exports__);\n// 添加类名\nfunction add
 
 /***/ }),
 
-/***/ "./src/components/home/assets/cloud-clinic.png":
-/*!*****************************************************!*\
-  !*** ./src/components/home/assets/cloud-clinic.png ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/dd745141b8552f6237384b1c9a322740.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/cloud-clinic.png?");
-
-/***/ }),
-
-/***/ "./src/components/home/assets/erp.png":
+/***/ "./src/products/assets/imgs/amImg.png":
 /*!********************************************!*\
-  !*** ./src/components/home/assets/erp.png ***!
+  !*** ./src/products/assets/imgs/amImg.png ***!
   \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"imgs/8ae48d2f205b7365e1feb4b3cfcd01f5.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/erp.png?");
+eval("module.exports = __webpack_require__.p + \"imgs/c6cd64d7dd097e9d89ae8e8ec25a8a5c.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/amImg.png?");
 
 /***/ }),
 
-/***/ "./src/components/home/assets/instrument.png":
-/*!***************************************************!*\
-  !*** ./src/components/home/assets/instrument.png ***!
-  \***************************************************/
+/***/ "./src/products/assets/imgs/bcmImg.png":
+/*!*********************************************!*\
+  !*** ./src/products/assets/imgs/bcmImg.png ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"imgs/40f91733a6655c55e078b942db8d8720.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/instrument.png?");
+eval("module.exports = __webpack_require__.p + \"imgs/dbc16ee9c6c528b7ff4c72544e4c6565.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/bcmImg.png?");
 
 /***/ }),
 
-/***/ "./src/components/home/assets/logistics.png":
+/***/ "./src/products/assets/imgs/ccImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/ccImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/fcbfd59272e5c4e8af1af3cadcbd13bb.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/ccImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/cmImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/cmImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/074181d89e735c71f8a7bf55e4ef7de0.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/cmImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/ewImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/ewImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/789579a0668446e459db6bbbe47cf232.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/ewImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/gmImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/gmImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/d2fa6dff49b599237c31cf9529d756e2.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/gmImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/gpsImg.png":
+/*!*********************************************!*\
+  !*** ./src/products/assets/imgs/gpsImg.png ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/e372490bff3aeedfaa201df9c025f2d8.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/gpsImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/groupingImg.png":
 /*!**************************************************!*\
-  !*** ./src/components/home/assets/logistics.png ***!
+  !*** ./src/products/assets/imgs/groupingImg.png ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"imgs/24ac3a513cfac740589d1ef54d9a9d87.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/logistics.png?");
+eval("module.exports = __webpack_require__.p + \"imgs/edebf684b510e6e3fb878458b1a628bd.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/groupingImg.png?");
 
 /***/ }),
 
-/***/ "./src/components/home/assets/system.png":
-/*!***********************************************!*\
-  !*** ./src/components/home/assets/system.png ***!
-  \***********************************************/
+/***/ "./src/products/assets/imgs/msImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/msImg.png ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__.p + \"imgs/bcd338331a259768fcf2dcfdf5f6ce00.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/system.png?");
+eval("module.exports = __webpack_require__.p + \"imgs/ba47fe71c1819235510b5f439482c147.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/msImg.png?");
 
 /***/ }),
 
-/***/ "./src/components/home/home.css":
-/*!**************************************!*\
-  !*** ./src/components/home/home.css ***!
-  \**************************************/
+/***/ "./src/products/assets/imgs/pmImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/pmImg.png ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./home.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./home.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./home.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/components/home/home.css?");
+eval("module.exports = __webpack_require__.p + \"imgs/387e5ef2c92dda94c89685710b464fd3.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/pmImg.png?");
 
 /***/ }),
 
-/***/ "./src/components/home/home.html":
+/***/ "./src/products/assets/imgs/poImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/poImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/02ee6429f741cbdf946c529821de1ace.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/poImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/psImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/psImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/4b5e93e60473d3a9e546cafc7a7e41e3.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/psImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/saImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/saImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/1ad93218be1dd1f962682b0ef6370018.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/saImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/scImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/scImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/70a33dddc29974b8155457f6062ef833.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/scImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/slImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/slImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/c31560358dbcaa9b689f5decae6a0a7f.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/slImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/systemImg.png":
+/*!************************************************!*\
+  !*** ./src/products/assets/imgs/systemImg.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/3e543e3a5c62c76fb2d47d95fb5c4352.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/systemImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/imgs/tsImg.png":
+/*!********************************************!*\
+  !*** ./src/products/assets/imgs/tsImg.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/6c3c76cb191653e80274f43babacc893.png\";\n\n//# sourceURL=webpack:///./src/products/assets/imgs/tsImg.png?");
+
+/***/ }),
+
+/***/ "./src/products/assets/index.css":
 /*!***************************************!*\
-  !*** ./src/components/home/home.html ***!
+  !*** ./src/products/assets/index.css ***!
   \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = \"<!-- 首页 -->\\n<div class=\\\"page_home\\\">\\n    <div class=\\\"erp\\\">\\n        <div>\\n            <h2>医疗管理ERP</h2>\\n            <p class=\\\"erp-description\\\">符合药监系统的一体化ERP系统，涵盖企业进、销、存的管理，其报表分析系统亦能助力企业决策</p>\\n            <p>\\n                <!-- <a id='erp_link' href=\\\"javascript:\\\">了解更多</a> -->\\n                <p><a id='logistics_link' href=\\\"./products.html?product=instruments\\\">了解更多</a></p>\\n            </p>\\n        </div>\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/erp.png */ \"./src/components/home/assets/erp.png\") + \"\\\">\\n    </div>\\n    <div class=\\\"instrument\\\">\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/instrument.png */ \"./src/components/home/assets/instrument.png\") + \"\\\">\\n        <div>\\n            <h1>医疗器械版</h1>\\n            <p>符合新版GSP管理、软件操作简单、一键式安装、支持异地远程服务、数据安全稳定。</p>\\n            <!-- <p><a id='instruments_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n            <p><a id='logistics_link' href=\\\"./products.html?product=instruments\\\">了解更多</a></p>\\n        </div>\\n    </div>\\n    <div class=\\\"system\\\">\\n        <div>\\n            <h1>仓储系统</h1>\\n            <p>实现无纸化作业、加快拣货速度、提高拣货的准确率、降低培训成本、可追溯性和记录工作量。</p>\\n            <!-- <p><a id='warehousing-system_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n            <p><a id='logistics_link' href=\\\"./products.html?product=warehousing-system\\\">了解更多</a></p>\\n        </div>\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/system.png */ \"./src/components/home/assets/system.png\") + \"\\\">\\n    </div>\\n    <div class=\\\"logistics\\\">\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/logistics.png */ \"./src/components/home/assets/logistics.png\") + \"\\\">\\n        <div>\\n            <h1>第三方物流</h1>\\n            <p>通过系统对接的方式，保证多平台订单数据、结算数据的一致性，且系统涵盖完整的WMS系统，从收货入库到拣选出库的流程一应俱全。</p>\\n            <!-- <p><a id='logistics_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n            <p><a id='logistics_link' href=\\\"./products.html?product=logistics\\\">了解更多</a></p>\\n        </div>\\n    </div>\\n    <div class=\\\"cloud-clinic\\\">\\n        <div>\\n            <h1>云诊所</h1>\\n            <p>内外兼修的SaaS系统，提供多种诊所内部管理模块，外部客户使用的多种功能，包罗全部业务所需。</p>\\n            <p><a id='cloud-clinic_link' href=\\\"javascript:\\\">了解更多</a></p>\\n            <!-- <p><a id='cloud-clinic_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n        </div>\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/cloud-clinic.png */ \"./src/components/home/assets/cloud-clinic.png\") + \"\\\">\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/components/home/home.html?");
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/products/assets/index.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/products/assets/index.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/products/assets/index.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/products/assets/index.css?");
 
 /***/ }),
 
-/***/ "./src/components/home/home.js":
-/*!*************************************!*\
-  !*** ./src/components/home/home.js ***!
-  \*************************************/
+/***/ "./src/products/assets/js/initPage.js":
+/*!********************************************!*\
+  !*** ./src/products/assets/js/initPage.js ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _home_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.html */ \"./src/components/home/home.html\");\n/* harmony import */ var _home_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_home_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _home_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.css */ \"./src/components/home/home.css\");\n/* harmony import */ var _home_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_home_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _subPage_cloud_clinic_cloud_clinic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../subPage/cloud-clinic/cloud-clinic */ \"./src/subPage/cloud-clinic/cloud-clinic.js\");\n/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../router/index */ \"./src/router/index.js\");\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _home_html__WEBPACK_IMPORTED_MODULE_0___default.a\n\n        document.getElementById('cloud-clinic_link').addEventListener('click', (event) => {\n            window.scrollTo(0, 0)\n            _router_index__WEBPACK_IMPORTED_MODULE_3__[\"default\"].skip('cloud-clinic')\n            // router.go('/cloud-clinic')\n        })\n    }\n});\n\n//# sourceURL=webpack:///./src/components/home/home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../index.html */ \"./src/products/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _switchTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./switchTab */ \"./src/products/assets/js/switchTab.js\");\n\n\n\n\n// 注册滚动监听\nfunction addScrollEvent(targetFunction) {\n    window.addEventListener('scroll', targetFunction)\n}\n\n// 动画事件 问题模块 \n// getBoundingClientRect top 包括padding\n\nfunction animation() {\n    let target = document.querySelector('.instryments-problem')\n    if (!target) return\n    document.querySelector('.instryments-problem div').classList.add('easing-currence')\n}\n\n// 动画事件 解决方案模块\n\nfunction solutionAnimation() {\n    let target = document.querySelector('.instryments-solution')\n    if (!target) return\n    let targetPosition = target.getBoundingClientRect(),\n        top = targetPosition.top,\n        windowHeight = window.innerHeight || document.documentElement.clientHeight\n    if (top <= windowHeight) {\n        // 缓动浮现标题\n        document.querySelector('.instryments-solution h3').classList.add('easing-currence')\n        window.removeEventListener('scroll', solutionAnimation)\n        addScrollEvent(h6Animation)\n    }\n}\n\n// h6缓动事件\n\nfunction h6Animation() {\n    let target = document.querySelector('.instryments-solution h6')\n    if (!target) return\n    let targetPosition = target.getBoundingClientRect(),\n        top = targetPosition.top,\n        windowHeight = window.innerHeight || document.documentElement.clientHeight\n    if (top <= windowHeight) {\n        // 缓动浮现标题\n        target.classList.add('easing-currence')\n        window.removeEventListener('scroll', h6Animation)\n        addScrollEvent(divAnimation)\n    }\n}\n\n// div 缓动事件\nfunction divAnimation() {\n    let targetList = document.querySelectorAll('.instryments-solution div div'),\n        targetBox = document.querySelector('.instryments-solution'),\n        windowHeight = window.innerHeight || document.documentElement.clientHeight\n    if (!targetList) return\n    for (let i = 0; i < targetList.length; i++) {\n        let target = targetList[i],\n            targetPosition = target.getBoundingClientRect(),\n            top = targetPosition.top\n        // 缓动浮现标题\n        if (top <= windowHeight) target.classList.add('easing-currence')\n    }\n    // 移除滚动监听\n    if (targetBox && targetBox.getBoundingClientRect().bottom <= windowHeight) {\n        window.removeEventListener('scroll', divAnimation)\n    }\n}\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n\n    mount(container, pageKey) {\n        this.instrumentVisit = 0\n        this.warehousingVisit = 0\n        this.logisticsVisit = 0\n        this.windowHeight = window.innerHeight || document.documentElement.clientHeight\n        container.innerHTML = _index_html__WEBPACK_IMPORTED_MODULE_0___default.a\n\n        let search = decodeURIComponent(location.search)\n        if (search) pageKey = search.split('=')[1]\n        else pageKey = 'instruments'\n\n        Object(_switchTab__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(pageKey)\n        // 加载动画\n        animation()\n        // window.addEventListener('scroll', solutionAnimation)\n        addScrollEvent(solutionAnimation)\n\n        switch (pageKey) {\n            case 'instruments':\n                this.instrumentVisit++\n                break;\n            case 'warehousing-system':\n                this.warehousingVisit++\n                break;\n            case 'logistics':\n                this.logistics++\n                break;\n            default:\n                break;\n        }\n\n        document.querySelector('#product-instruments').addEventListener('click', () => {\n            Object(_switchTab__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('instruments')\n            // 加载动画\n            if (!this.instrumentVisit) {\n                animation()\n                addScrollEvent(solutionAnimation)\n            }\n            this.instrumentVisit++\n        })\n\n        document.querySelector('#product-warehousing').addEventListener('click', () => {\n            // alert('#product-warehousing')\n            Object(_switchTab__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('warehousing-system')\n            // 加载动画\n            if (!this.warehousingVisit) {\n                animation()\n                addScrollEvent(solutionAnimation)\n            }\n            this.warehousingVisit++\n        })\n\n        document.querySelector('#product-logistics').addEventListener('click', () => {\n            // alert('#product-logistics')\n            Object(_switchTab__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('logistics')\n            // 加载动画\n            if (!this.logisticsVisit) {\n                animation()\n                addScrollEvent(solutionAnimation)\n            }\n            this.logisticsVisit++\n        })\n    }\n});\n\n//# sourceURL=webpack:///./src/products/assets/js/initPage.js?");
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/products/assets/js/switchTab.js":
+/*!*********************************************!*\
+  !*** ./src/products/assets/js/switchTab.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_instruments_instruments__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/instruments/instruments */ \"./src/products/components/instruments/instruments.js\");\n/* harmony import */ var _components_logistics_logistics__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/logistics/logistics */ \"./src/products/components/logistics/logistics.js\");\n/* harmony import */ var _components_warehousing_system_warehousing_system__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/warehousing-system/warehousing-system */ \"./src/products/components/warehousing-system/warehousing-system.js\");\n// 医疗器械\n\n// 第三方物流\n\n// 仓储系统\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (pageKey) {\n\n    // let viewPromise\n\n    // switch (pageKey) {\n    //     case 'instruments':\n    //         viewPromise = import( /* webpackChunkName: \"instruments\" */ '../../components/instruments/instruments')\n    //         break;\n    //     case 'logistics':\n    //         viewPromise = import( /* webpackChunkName: \"logistics\" */ '../../components/logistics/logistics')\n    //         break\n    //     case 'warehousing-system':\n    //         viewPromise = import( /* webpackChunkName: \"warehousing-system\" */ '../../components/warehousing-system/warehousing-system')\n    //         break\n    //     default:\n    //         viewPromise = import( /* webpackChunkName: \"instruments\" */ '../../components/instruments/instruments')\n    //         break;\n    // }\n\n    const view = {\n        'instruments': _components_instruments_instruments__WEBPACK_IMPORTED_MODULE_0__[\"default\"],\n        'logistics': _components_logistics_logistics__WEBPACK_IMPORTED_MODULE_1__[\"default\"],\n        'warehousing-system': _components_warehousing_system_warehousing_system__WEBPACK_IMPORTED_MODULE_2__[\"default\"],\n    } [pageKey]\n    // path路径错误\n    view ? view : view = _components_instruments_instruments__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n    new view().mount(document.getElementById('enterprise-system_content'))\n    // viewPromise.then(module => {\n    //     const view = new module.default()\n    //     view.mount(document.getElementById('enterprise-system_content'))\n    // })\n});\n\n//# sourceURL=webpack:///./src/products/assets/js/switchTab.js?");
+
+/***/ }),
+
+/***/ "./src/products/components/instruments/instruments.html":
+/*!**************************************************************!*\
+  !*** ./src/products/components/instruments/instruments.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"module_instruments\\\">\\n    <div class=\\\"instryments-problem\\\">\\n        <h3>是否遇见以下问题</h3>\\n        <div>\\n            <div>普通ERP不符合药监规定，无法进行质量管控。</div>\\n            <div>多公司难以集团化管控、数据实时共享。</div>\\n            <div>业务信息零散导致数据分析困难，无法提供决策。</div>\\n        </div>\\n    </div>\\n    <div class=\\\"instryments-solution\\\">\\n        <h3>\\n            我们为您解决\\n        </h3>\\n        <h6>适用企业：大中型医疗器械（Ⅰ类、Ⅱ类、Ⅲ类）经营企业</h6>\\n        <div>\\n            <div class=\\\"gps\\\">\\n                <h6>GPS规范</h6>\\n                <p>完全符合新版GPS要求，包括：经营范围的控制、证照效期控制及预警、商品批号效期及预警等。</p>\\n            </div>\\n            <div class=\\\"price-system\\\">\\n                <h6>价格体系</h6>\\n                <p>丰富的价格体系，包括：协议价、中标价、价格加成、优惠价最低价、最高价等。</p>\\n            </div>\\n            <div class=\\\"shopping-list\\\">\\n                <h6>采购计划</h6>\\n                <p>支持按商品类别、采购员、供应商、销量预测、库存周转率、渠道等生成采购计划。</p>\\n            </div>\\n            <div class=\\\"settlement-control\\\">\\n                <h6>结算控制</h6>\\n                <p>支持现结、预付、周结、月结翻单结、实销实结等。严格控制到票后付款。</p>\\n            </div>\\n            <div class=\\\"grouping\\\">\\n                <h6>集团化</h6>\\n                <p>支持集团化管理、实现数据共享、集团化经营分析。</p>\\n            </div>\\n            <div class=\\\"authority-management\\\">\\n                <h6>权限管理</h6>\\n                <p>支持功能权限控制，支持数据权限、字段权限控制等。</p>\\n            </div>\\n            <div class=\\\"strategic-analysis\\\">\\n                <h6>决策分析</h6>\\n                <p>\\n                    多样化报表模型，包括：品类分析、销售分析、库存分心、往来分析，同比、环比等。\\n                </p>\\n            </div>\\n            <div class=\\\"channel-control\\\">\\n                <h6>渠道管控</h6>\\n                <p>完善的渠道管控，结合“两票制”政策和上下游企业供销关系、业务员关系等。</p>\\n            </div>\\n            <div class=\\\"traceability-system\\\">\\n                <h6>追溯体系</h6>\\n                <p>完整的质量追溯体系、确保全过程可追溯。</p>\\n            </div>\\n            <div class=\\\"credit-control\\\">\\n                <h6>资信控制</h6>\\n                <p>支持资信额度、资信天数控制，结合消息预警、订单管理、账龄分析等进行管控。</p>\\n            </div>\\n        </div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/products/components/instruments/instruments.html?");
+
+/***/ }),
+
+/***/ "./src/products/components/instruments/instruments.js":
+/*!************************************************************!*\
+  !*** ./src/products/components/instruments/instruments.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _instruments_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./instruments.html */ \"./src/products/components/instruments/instruments.html\");\n/* harmony import */ var _instruments_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_instruments_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_js_switchTab__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/js/switchTab */ \"./src/products/assets/js/switchTab.js\");\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _instruments_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        let activeTab = document.querySelector('.activeTab'),\n            tabInstruments = document.querySelector('#product-instruments')\n        if (activeTab) activeTab.classList.remove('activeTab')\n        if (tabInstruments) {\n            tabInstruments.classList.add('activeTab')\n            tabInstruments.addEventListener('click', () =>{\n                Object(_assets_js_switchTab__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('instruments')\n            })\n        }\n    }\n});\n\n//# sourceURL=webpack:///./src/products/components/instruments/instruments.js?");
+
+/***/ }),
+
+/***/ "./src/products/components/logistics/logistics.html":
+/*!**********************************************************!*\
+  !*** ./src/products/components/logistics/logistics.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"module_instruments\\\">\\n    <div class=\\\"instryments-problem\\\">\\n        <h3>是否遇见以下问题</h3>\\n        <div>\\n            <div>普通ERP不符合药监规定，无法进行质量管控。</div>\\n            <div>大量的终端客户，传统业务人员手工制单模式无法应对。</div>\\n            <div>对采购计划、库存周转、拣配效率要求高。</div>\\n        </div>\\n    </div>\\n    <div class=\\\"instryments-solution\\\">\\n        <h3>\\n            我们为您解决\\n        </h3>\\n        <h6>适用企业:医疗器械批发、耗材批发、B2B耗材批发等经营企业</h6>\\n        <div>\\n            <div class=\\\"gps\\\">\\n                <h6>GPS规范</h6>\\n                <p>完全符合新版GPS要求，包括：经营范围的控制、证照效期控制及预警、商品批号效期及预警等。</p>\\n            </div>\\n            <div class=\\\"price-system\\\">\\n                <h6>价格体系</h6>\\n                <p>丰富的价格体系，包括：协议价、中标价、价格加成、优惠价最低价、最高价等。</p>\\n            </div>\\n            <div class=\\\"shopping-list\\\">\\n                <h6>采购计划</h6>\\n                <p>支持按商品类别、采购员、供应商、销量预测、库存周转率、渠道等生成采购计划。</p>\\n            </div>\\n            <div class=\\\"product-management\\\">\\n                <h6>丰富的商品管理</h6>\\n                <p>商品多级分类、商品多级单位，自定义显示库存等。</p>\\n            </div>\\n            <div class=\\\"traceability-system\\\">\\n                <h6>追溯体系</h6>\\n                <p>完整的质量追溯体系、确保全过程可追溯。</p>\\n            </div>\\n            <div class=\\\"authority-management\\\">\\n                <h6>权限管理</h6>\\n                <p>支持功能权限控制，支持数据权限、字段权限控制等。</p>\\n            </div>\\n            <div class=\\\"strategic-analysis\\\">\\n                <h6>决策分析</h6>\\n                <p>\\n                    多样化报表模型，包括：品类分析、销售分析、库存分心、往来分析，同比、环比等。\\n                </p>\\n            </div>\\n            <div class=\\\"promotion-management\\\">\\n                <h6>促销管理</h6>\\n                <p>多种促销方案：买赠、折扣、组合、优惠等。</p>\\n            </div>\\n        </div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/products/components/logistics/logistics.html?");
+
+/***/ }),
+
+/***/ "./src/products/components/logistics/logistics.js":
+/*!********************************************************!*\
+  !*** ./src/products/components/logistics/logistics.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _logistics_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./logistics.html */ \"./src/products/components/logistics/logistics.html\");\n/* harmony import */ var _logistics_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_logistics_html__WEBPACK_IMPORTED_MODULE_0__);\n\n\n// 第三方物流\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _logistics_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        let activeTab = document.querySelector('.activeTab'),\n            tabLogistics = document.querySelector('#product-logistics')\n        if (activeTab) activeTab.classList.remove('activeTab')\n        if (tabLogistics) {\n            tabLogistics.classList.add('activeTab')\n        }\n    }\n});\n\n//# sourceURL=webpack:///./src/products/components/logistics/logistics.js?");
+
+/***/ }),
+
+/***/ "./src/products/components/warehousing-system/warehousing-system.html":
+/*!****************************************************************************!*\
+  !*** ./src/products/components/warehousing-system/warehousing-system.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"module_instruments\\\">\\n    <div class=\\\"instryments-problem\\\">\\n        <h3>是否遇见以下问题</h3>\\n        <div>\\n            <div>普通物流仓储系统不符合药监规定，难以质量管控。</div>\\n            <div>与上游ERP或OMS系统无对接，导致信息不对成。</div>\\n            <div>仓储作业不规范、拣配不合理等人为因素导致效率降低。</div>\\n        </div>\\n    </div>\\n    <div class=\\\"instryments-solution\\\">\\n        <h3>\\n            我们为您解决\\n        </h3>\\n        <h6>适用企业:第三方物流、自建物流中心</h6>\\n        <div>\\n            <div class=\\\"multi-service\\\">\\n                <h6>支持多业务模式</h6>\\n                <p>自建物流中心、第三方物流中心、委托配送等。</p>\\n            </div>\\n            <div class=\\\"bar-code-management\\\">\\n                <h6>全过程条码化管理</h6>\\n                <p>货位条码化、作业条码等，紧密结合PDA设备，提高工作效率。</p>\\n            </div>\\n            <div class=\\\"process-oriented\\\">\\n                <h6>符合统一流程化管理</h6>\\n                <p>自建物流中心、第三方物流中心、委托配送等。</p>\\n            </div>\\n            <div class=\\\"gps\\\">\\n                <h6>完全符合新版GSP要求</h6>\\n                <p>首营资质审核、批号效期控制、库内养护作业、各类GSP记录等。</p>\\n            </div>\\n            <div class=\\\"early-warning\\\">\\n                <h6>支持各类预警</h6>\\n                <p>批号效期入库预警、批号效期超期预警、注册证效期预警、供应商及客户经营证照效期预警，极大规避作业差错。</p>\\n            </div>\\n            <div class=\\\"product-management\\\">\\n                <h6>采用商品批次管理</h6>\\n                <p>实现商品的入库、出库、保管过程的可追溯，支持逆向跟踪。</p>\\n            </div>\\n        </div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/products/components/warehousing-system/warehousing-system.html?");
+
+/***/ }),
+
+/***/ "./src/products/components/warehousing-system/warehousing-system.js":
+/*!**************************************************************************!*\
+  !*** ./src/products/components/warehousing-system/warehousing-system.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _warehousing_system_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./warehousing-system.html */ \"./src/products/components/warehousing-system/warehousing-system.html\");\n/* harmony import */ var _warehousing_system_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_warehousing_system_html__WEBPACK_IMPORTED_MODULE_0__);\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _warehousing_system_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        let activeTab = document.querySelector('.activeTab'),\n            tabWarehousing = document.querySelector('#product-warehousing')\n        if (activeTab) activeTab.classList.remove('activeTab')\n        if (tabWarehousing) tabWarehousing.classList.add('activeTab')\n    }\n});\n\n//# sourceURL=webpack:///./src/products/components/warehousing-system/warehousing-system.js?");
+
+/***/ }),
+
+/***/ "./src/products/index.html":
+/*!*********************************!*\
+  !*** ./src/products/index.html ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = \"<div class=\\\"page_enterprise-system\\\">\\n    <!-- 1渐变背景色 2背景图片-->\\n    <div class=\\\"enterprise-system_title\\\">\\n        <img class=\\\"photo\\\" src='\" + __webpack_require__(/*! ./assets/imgs/systemImg.png */ \"./src/products/assets/imgs/systemImg.png\") + \"' />\\n        <h2>\\n            医疗器械企业管理系统\\n        </h2>\\n        <p>\\n            符合药监系统的一体化ERP系统，能满足对进、销、存的全部需求，其强大的报表分析系统也能助力企业决策及数据统计。同时，系统可对接财务系统、各类标准API的外部系统等，使管理更便捷。\\n        </p>\\n    </div>\\n    <ul id=\\\"products-tab\\\">\\n        <li id=\\\"product-instruments\\\">\\n            <p><a href=\\\"javascript:\\\">医疗器械版</a></p>\\n        </li>\\n        <li id=\\\"product-warehousing\\\">\\n            <p><a href=\\\"javascript:\\\">医疗批发版</a></p>\\n        </li>\\n        <li id=\\\"product-logistics\\\">\\n            <p><a href=\\\"javascript:\\\">第三方物流</a></p>\\n        </li>\\n    </ul>\\n    <div id=\\\"enterprise-system_content\\\" class=\\\"enterprise-system_content\\\">\\n        <!-- 产品中心 -->\\n\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/products/index.html?");
+
+/***/ }),
+
+/***/ "./src/products/index.js":
+/*!*******************************!*\
+  !*** ./src/products/index.js ***!
+  \*******************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/index.css */ \"./src/assets/index.css\");\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_js_common_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/js/common/index */ \"./src/assets/js/common/index.js\");\n/* harmony import */ var _components_home_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/home/home */ \"./src/components/home/home.js\");\n\n// import router from './router/index'\n\n\n\n\n// import header from './assets/components/header.html'\n// import footer from './assets/components/footer.html'\n\n// let Header = document.getElementsByTagName('header')[0],\n//     Footer = document.getElementsByTagName('footer')[0]\n\n// Header.innerHTML = header\n// Footer.innerHTML = footer\n\n// 载入页面只要内容\n// router.start()\nObject(_assets_js_common_index__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\nnew _components_home_home__WEBPACK_IMPORTED_MODULE_2__[\"default\"]().mount(document.getElementById('site-page-content'))\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/router/index.js":
-/*!*****************************!*\
-  !*** ./src/router/index.js ***!
-  \*****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes/routes */ \"./src/router/routes/routes.js\");\n\n\nclass Router {\n    start() {\n        window.addEventListener('popstate', this.back)\n\n        // 本地文件\n        // if (/file/.test(location.href)) this.load('/')\n        // else this.load(location.pathname)\n\n    }\n\n    // erp\n\n    go(path, params) {\n        if (path === '/erp') path += `${params? '?product=' + params: ''}`\n        else if (params) path += `?title=${params}`\n\n        try {\n            history.pushState({}, '', path)\n            this.load(path, params)\n        } catch (error) {\n            // console.error()\n            // 在本地打开项目文件\n            this.load(path, params)\n        }\n    }\n\n    // 打开本地文件时如何载入\n    load(path) {\n        console.log(path)\n        // if (path === '/') {\n        if (/\\/$/.test(path)) {\n            const view = new(Object(_routes_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('/home'))()\n            view.mount(document.getElementById('site-page-content'))\n        }\n        // else if (/title/.test(path)) path = '/about/news'\n        // console.log(path.replace(/\\?.*$/, ''))\n        // const view = new routes[path.replace(/\\?.*$/, '')]()\n        else Object(_routes_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(path.replace(/\\?.*$/, '')).then(module => {\n            const view = new module.default()\n            view.mount(document.getElementById('site-page-content'))\n        })\n    }\n\n    back() {\n        // 根据location.pathname\n        window.location.reload()\n        window.removeEventListener('popstate', this.back)\n    }\n\n    skip(path, param) {\n        // #path?title\n        // #path\n        try {\n            history.pushState({}, '', `#${path}${param ? '?' + param : ''}`)\n            Object(_routes_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(path).then(module => {\n                const view = new module.default()\n                view.mount(document.getElementById('site-page-content'))\n            })\n        } catch (error) {\n            Object(_routes_routes__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(path).then(module => {\n                const view = new module.default()\n                view.mount(document.getElementById('site-page-content'))\n            })\n        }\n    }\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (new Router());\n\n//# sourceURL=webpack:///./src/router/index.js?");
-
-/***/ }),
-
-/***/ "./src/router/routes/routes.js":
-/*!*************************************!*\
-  !*** ./src/router/routes/routes.js ***!
-  \*************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ((path) => {\n    switch (path) {\n        case 'cloud-clinic':\n            return __webpack_require__.e(/*! import() | cloud-clinic */ \"cloud-clinic\").then(__webpack_require__.bind(null, /*! ../../subPage/cloud-clinic/cloud-clinic */ \"./src/subPage/cloud-clinic/cloud-clinic.js\"))\n        case 'news':\n            return __webpack_require__.e(/*! import() | news */ \"news\").then(__webpack_require__.bind(null, /*! ../../subPage/news/news */ \"./src/subPage/news/news.js\"))\n        default:\n            break;\n    }\n});\n\n\n//# sourceURL=webpack:///./src/router/routes/routes.js?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/cloud-clinic.html":
-/*!****************************************************!*\
-  !*** ./src/subPage/cloud-clinic/cloud-clinic.html ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = \"<div class=\\\"page_cloud-clinic\\\">\\n    <div class=\\\"page-title\\\">\\n        <div class=\\\"title-text\\\">\\n            <h2>云诊所</h2>\\n            <p>内外兼修的轻量级系统，提供包括公司体系及基础信息管理，内部CRM、ERP、财务薪酬、排班、内部培训，在线商城、IM、预约、公众号及回访中心等外部客户功能，包罗您的全部业务所需。</p>\\n        </div>\\n        <div>\\n            <img src=\\\"\" + __webpack_require__(/*! ../../assets/images/cloud-clinic.png */ \"./src/assets/images/cloud-clinic.png\") + \"\\\">\\n        </div>\\n    </div>\\n    <div class=\\\"cloud-clinic-problem\\\">\\n        <h3>是否遇见以下问题</h3>\\n        <div>\\n            <div>\\n                <h6>系统繁多，无法统一管理的问题</h6>\\n                <p>同一个公司有多套系统，分别管理不同流程、部门、分支，无法统一标准，统一管理，使得企业内部管理混乱。</p>\\n            </div>\\n            <div>\\n                <h6>系统复杂，不易操作的麻烦</h6>\\n                <p>系统功能繁多，角色权限不清晰；操作复杂，交互不友好，磨合期较长，不能及时有效的真正解决企业问题。</p>\\n            </div>\\n            <div>\\n                <h6>高额的系统培训成本</h6>\\n                <p>传统系统无操作手册可查，系统配置复杂，各层培训时间长，成本高，人力浪费严重，企业无法有效协同及管理。</p>\\n            </div>\\n        </div>\\n    </div>\\n    <div class=\\\"cloud-clinic-solution\\\">\\n        <h3>我们为您解决</h3>\\n        <div>\\n            <div class=\\\"lightweight\\\">\\n                <h6>轻量级</h6>\\n                <p>非庞大的系统，对于新建企业友好度较高，只需操作手册，免去各类培训成本。</p>\\n            </div>\\n            <div class=\\\"convenient\\\">\\n                <h6>一站式</h6>\\n                <p>包含CRM、ERP、IM、WMS、OMS等一系列的功能，一站式囊获多个系统内容。</p>\\n            </div>\\n            <div class=\\\"dispatch-free\\\">\\n                <h6>免部署</h6>\\n                <p>SaaS架构，免除系统部署及后续运维的人员配备，及相关服务器的成本费用。</p>\\n            </div>\\n            <div class=\\\"unified-management\\\">\\n                <h6>兼顾内外</h6>\\n                <p>对内管理及对客户使用集成为同一套系统，免去了系统来回导入产生错漏的可能。</p>\\n            </div>\\n        </div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/cloud-clinic.html?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/cloud-clinic.js":
-/*!**************************************************!*\
-  !*** ./src/subPage/cloud-clinic/cloud-clinic.js ***!
-  \**************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cloud-clinic.html */ \"./src/subPage/cloud-clinic/cloud-clinic.html\");\n/* harmony import */ var _cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../router/index */ \"./src/router/index.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ \"./src/subPage/cloud-clinic/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        _router_index__WEBPACK_IMPORTED_MODULE_1__[\"default\"].start()\n    }\n});\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/cloud-clinic.js?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/images/bm.png":
-/*!************************************************!*\
-  !*** ./src/subPage/cloud-clinic/images/bm.png ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/4f8b3fbad5523391e8cdf2736ac48d44.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/bm.png?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/images/om.png":
-/*!************************************************!*\
-  !*** ./src/subPage/cloud-clinic/images/om.png ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/557fe8fd1c742b161b93561e6cedd128.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/om.png?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/images/problemImg.png":
-/*!********************************************************!*\
-  !*** ./src/subPage/cloud-clinic/images/problemImg.png ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/45f97fe8a86cedfe438ecd404cc7184e.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/problemImg.png?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/images/rule.png":
-/*!**************************************************!*\
-  !*** ./src/subPage/cloud-clinic/images/rule.png ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/08a80dd0d5a67308cd2d898f72ec1616.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/rule.png?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/images/ui.png":
-/*!************************************************!*\
-  !*** ./src/subPage/cloud-clinic/images/ui.png ***!
-  \************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/094959ac19bf5826d3b7029fe9d4d7ba.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/ui.png?");
-
-/***/ }),
-
-/***/ "./src/subPage/cloud-clinic/style.css":
-/*!********************************************!*\
-  !*** ./src/subPage/cloud-clinic/style.css ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./style.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./style.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./style.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/style.css?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/index.css */ \"./src/assets/index.css\");\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/index.css */ \"./src/products/assets/index.css\");\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_index_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _assets_js_common_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/js/common/index */ \"./src/assets/js/common/index.js\");\n/* harmony import */ var _assets_js_initPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/js/initPage */ \"./src/products/assets/js/initPage.js\");\n// import template from './erp.html'\n\n\n\n\n\n// import header from '../assets/components/header.html'\n// import footer from '../assets/components/footer.html'\n\n// 页面内容\n\nObject(_assets_js_common_index__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\n// let Header = document.getElementsByTagName('header')[0],\n//     Footer = document.getElementsByTagName('footer')[0],\nlet container = document.getElementById('site-page-content')\n\n// Header.innerHTML = header\n// Footer.innerHTML = footer\n\n// document.querySelector('.site-header img').onclick = () =>{\n//     location.pathname = '/index.html'\n// }\n\nnew _assets_js_initPage__WEBPACK_IMPORTED_MODULE_3__[\"default\"]().mount(container)\n\n//# sourceURL=webpack:///./src/products/index.js?");
 
 /***/ })
 

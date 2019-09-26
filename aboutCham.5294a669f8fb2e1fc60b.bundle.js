@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "b50e026b9e245bcb9751";
+/******/ 	var hotCurrentHash = "5294a669f8fb2e1fc60b";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -976,7 +976,7 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ \"./src/aboutUs/assets/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\");\nvar _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\", 1);\n/* harmony import */ var _js_updateNews__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/updateNews */ \"./src/aboutUs/assets/js/updateNews.js\");\n/* harmony import */ var _js_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/pagination */ \"./src/aboutUs/assets/js/pagination.js\");\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _index_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        //  获取数据,初次渲染前10条\n        let newsList = _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__.news.slice(0, 10),\n            length = _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__.news.length\n\n        document.getElementById('about-news-list').appendChild(Object(_js_updateNews__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(newsList))\n        document.getElementById('pagination').appendChild(Object(_js_pagination__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(Math.ceil(length / 10)))\n    }\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/Page.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index.html */ \"./src/aboutUs/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\");\nvar _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\", 1);\n/* harmony import */ var _js_updateNews__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/updateNews */ \"./src/aboutUs/assets/js/updateNews.js\");\n/* harmony import */ var _js_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/pagination */ \"./src/aboutUs/assets/js/pagination.js\");\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _index_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        //  获取数据,初次渲染前10条\n        let newsList = _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__.news.slice(0, 10),\n            length = _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__.news.length\n\n        document.getElementById('about-news-list').appendChild(Object(_js_updateNews__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(newsList))\n        document.getElementById('pagination').appendChild(Object(_js_pagination__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(Math.ceil(length / 10)))\n    }\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/Page.js?");
 
 /***/ }),
 
@@ -999,17 +999,6 @@ eval("module.exports = __webpack_require__.p + \"imgs/76fccdf80a6bf7d413111951b0
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/aboutUs/assets/index.css?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/index.html":
-/*!***************************************!*\
-  !*** ./src/aboutUs/assets/index.html ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = \"<div class=\\\"page_about\\\">\\n    <div class=\\\"about-title\\\">\\n        <h3>关于查姆</h3>\\n        <p>上海查姆成立于2010年，核心团队成员皆在ERP领域有着6-8年的相关经验，公司自研产品包含医疗器械版ERP、仓储系统、第三方物流系统、云诊所等符合GSP相关要求的软件产品。自研软件产品服务于上海泰美医疗器械有限公司、上海方承医疗器械有限公司、聚赢齿科技术（上海）有限公司、海王业威医疗科技（上海）有限公司、上海励齿医疗科技有限公司、上海康买医疗科技有限公司等十余家医疗相关企业，合作年限已达6-7年，在业内均获得较好口碑及评价。\\n        </p>\\n    </div>\\n    <div id=\\\"about-news-list\\\" class=\\\"about-news-list\\\">\\n        <h3>新闻资讯</h3>\\n    </div>\\n    <div id=\\\"pagination\\\" class=\\\"pagination\\\">\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/aboutUs/assets/index.html?");
 
 /***/ }),
 
@@ -1046,6 +1035,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rou
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\");\nvar _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\", 1);\n/* harmony import */ var _updateNews__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateNews */ \"./src/aboutUs/assets/js/updateNews.js\");\n// 查询数据\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (page) {\n    // page 1: 0~10 10 ~ 20 20 ~ 30\n    Object(_updateNews__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(_assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_0__.news.slice((page - 1) * 10, (page * 10)))\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/js/updatePage.js?");
+
+/***/ }),
+
+/***/ "./src/aboutUs/index.html":
+/*!********************************!*\
+  !*** ./src/aboutUs/index.html ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"<div class=\\\"page_about\\\">\\n    <div class=\\\"about-title\\\">\\n        <h3>关于查姆</h3>\\n        <p>上海查姆成立于2010年，核心团队成员皆在ERP领域有着6-8年的相关经验，公司自研产品包含医疗器械版ERP、仓储系统、第三方物流系统、云诊所等符合GSP相关要求的软件产品。自研软件产品服务于上海泰美医疗器械有限公司、上海方承医疗器械有限公司、聚赢齿科技术（上海）有限公司、海王业威医疗科技（上海）有限公司、上海励齿医疗科技有限公司、上海康买医疗科技有限公司等十余家医疗相关企业，合作年限已达6-7年，在业内均获得较好口碑及评价。\\n        </p>\\n    </div>\\n    <div id=\\\"about-news-list\\\" class=\\\"about-news-list\\\">\\n        <h3>新闻资讯</h3>\\n    </div>\\n    <div id=\\\"pagination\\\" class=\\\"pagination\\\">\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/aboutUs/index.html?");
 
 /***/ }),
 
