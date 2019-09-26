@@ -92,7 +92,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "8e6203cb0e25588f364b";
+/******/ 	var hotCurrentHash = "206a38ded553c1b644ed";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -739,14 +739,14 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"aboutCham": 0
+/******/ 		"app": 0
 /******/ 	};
 /******/
 /******/
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"cloud-clinic":"cloud-clinic","news":"news"}[chunkId]||chunkId) + "." + hotCurrentHash + ".bundle.js"
+/******/ 		return __webpack_require__.p + "" + ({"news":"news"}[chunkId]||chunkId) + "." + hotCurrentHash + ".bundle.js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -905,21 +905,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire("./src/aboutUs/index.js")(__webpack_require__.s = "./src/aboutUs/index.js");
+/******/ 	return hotCreateRequire("./src/index.js")(__webpack_require__.s = "./src/index.js");
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css":
-/*!************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src!./src/aboutUs/assets/index.css ***!
-  \************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./imgs/aboutImg.png */ \"./src/aboutUs/assets/imgs/aboutImg.png\"));\n// Module\nexports.push([module.i, \".about-title {\\n    padding: 1.06rem 2.54rem 0;\\n    height: 4.31rem;\\n    box-sizing: border-box;\\n    background: no-repeat center/100% url(\" + ___CSS_LOADER_URL___0___ + \");\\n    text-align: center;\\n}\\n\\n.about-title h3 {\\n    margin: 0 0 .22rem;\\n}\\n\\n.about-title p {\\n    text-align: left;\\n    text-indent: 2em;\\n    font-size: 16px;\\n    line-height: 1.8;\\n    color: #364146;\\n}\\n\\n.about-news-list h3 {\\n    margin: .42rem 0 .3rem;\\n    text-align: center;\\n}\\n\\n.about-news-list ul {\\n    display: flex;\\n    flex-wrap: wrap;\\n    justify-content: center;\\n}\\n\\n.about-news-list ul li {\\n    width: 5.5rem;\\n    height: 175px;\\n    padding: 22px 30px 0;\\n    margin: 0 0 .3rem;\\n    box-sizing: border-box;\\n    background: #F8F9F9;\\n}\\n\\n.about-news-list ul li:hover {\\n    background: #ECEDED;\\n    cursor: pointer;\\n    transition: all .2s linear;\\n}\\n\\n.about-news-list ul li:nth-of-type(2n - 1) {\\n    margin-right: .3rem;\\n}\\n\\nul h5 {\\n    color: #007AFF;\\n    font-size: 18px;\\n}\\n\\n.about-news-list ul p {\\n    margin: 15px 0;\\n    line-height: 2;\\n}\\n\\n.pagination {\\n    margin: .12rem 0 .6rem;\\n}\\n\\n.pagination ul {\\n    display: flex;\\n    justify-content: center;\\n}\\n\\n.pagination ul li {\\n    width: .22rem;\\n    line-height: .24rem;\\n    text-align: center;\\n    border-radius: 4px;\\n}\\n\\n.pagination .active-page {\\n    background: #007AFF;\\n}\\n\\n.active-page a {\\n    color: #FFFFFF;\\n}\\n\\n@media (max-width: 768px) {\\n    .about-title p {\\n        font-size: 12px;\\n    }\\n\\n    .about-title {\\n        padding: 1rem .6rem;\\n        height: auto;\\n        line-height: 1;\\n        background: linear-gradient(180deg, rgba(161, 196, 253, 1) 0%, rgba(194, 233, 251, 1) 100%);\\n    }\\n\\n    .about-news-list ul li {\\n        width: 75vw;\\n        margin: 0 0 20px !important;\\n    }\\n\\n    .pagination ul li {\\n        width: 20px;\\n        line-height: 20px;\\n    }\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/aboutUs/assets/index.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
-
-/***/ }),
 
 /***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/assets/index.css":
 /*!****************************************************************************************************************!*\
@@ -928,7 +917,29 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \"body,\\np,\\nh1,\\nh2,\\nh3,\\nh4,\\nh5,\\nh6,\\nul,\\nli,\\ninput {\\n    padding: 0;\\n    margin: 0;\\n    color: #333333;\\n    font-weight: normal;\\n    box-sizing: border-box;\\n}\\n\\nh1 {\\n    font-size: 48px;\\n}\\n\\nh2 {\\n    font-size: 36px;\\n}\\n\\nh3 {\\n    font-size: 32px;\\n    font-weight: 500;\\n}\\n\\nh5 {\\n    font-weight: 400;\\n    font-size: 20px;\\n    color: #FFFFFF;\\n}\\n\\np {\\n    font-size: 14px;\\n    color: #666666;\\n}\\n\\nh6 {\\n    font-size: 18px;\\n}\\n\\na {\\n    color: inherit;\\n    text-decoration: none;\\n}\\n\\nul {\\n    list-style: none;\\n    display: flex;\\n}\\n\\ninput {\\n    background-color: transparent;\\n    border: 1px solid #DDE1E3;\\n    padding: 0 16px;\\n    color: #FFFFFF;\\n    font-size: 14px;\\n}\\n\\ninput::-webkit-input-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput::-moz-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput:-ms-input-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput::-ms-input-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput::placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\n:focus {\\n    outline: none;\\n}\\n\\nbutton {\\n    background-color: transparent;\\n    border: 1px solid #EBEDEF;\\n    color: #FFFFFF;\\n    font-size: 14px;\\n}\\n\\nbutton:active,\\nbutton:hover {\\n    background-color: rgba(255, 255, 255, .1);\\n}\\n\\n/* 1vw = 14.4px */\\n/* 7vw = 100.8px = 1rem */\\n/* 约等于 1rem = 100px */\\nhtml {\\n    font-size: 7vw;\\n    width: 100vw;\\n}\\n\\n.site-header {\\n    display: flex;\\n    align-items: center;\\n    justify-content: space-between;\\n    padding: 0 1.17rem 0 1.21rem;\\n}\\n\\n.site-header > img {\\n    width: 1.26rem;\\n    min-width: 100px;\\n    height: auto;\\n}\\n\\n.site-header > img:hover {\\n    cursor: pointer;\\n}\\n\\n.large-screen-nav li {\\n    line-height: .66rem;\\n    height: .66rem;\\n    width: 114px;\\n    color: #666666;\\n    font-size: 16px;\\n    text-align: center;\\n    box-sizing: border-box;\\n}\\n\\n.large-screen-nav li:hover{\\n    border-bottom: 2px solid #007AFF;\\n    color: #007AFF;\\n}\\n\\n.small-screen-nav {\\n    display: none;\\n}\\n\\n.site-header a {\\n    color: inherit;\\n}\\n\\n.site-footer {\\n    background: #014A6D;\\n    padding: .42rem 2rem 0;\\n}\\n\\n.site-footer p {\\n    font-size: 16px;\\n    color: #EBEDEF;\\n    margin: .28rem 0;\\n    font-weight: 300;\\n}\\n\\n.site-footer>div {\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: flex-start;\\n    flex-wrap: wrap;\\n}\\n\\n.site-footer input {\\n    display: block;\\n    width: 4.80rem;\\n    height: 48px;\\n    margin: .24rem 0;\\n}\\n\\n.site-footer button {\\n    display: block;\\n    width: 2.4rem;\\n    line-height: 48px;\\n    font-size: 14px;\\n    margin: .24rem 0 .42rem;\\n}\\n\\n.site-footer button:hover {\\n    cursor: pointer;\\n}\\n\\n\\n.site-footer ul {\\n    display: flex;\\n    font-size: 14px;\\n    color: #FFFFFF;\\n    margin: 0 -80px 0;\\n    line-height: .76rem;\\n}\\n\\n.site-footer li {\\n    color: #FFFFFF;\\n    margin-right: 30px;\\n}\\n\\n.site-footer ul li:nth-of-type(1) {\\n    flex-grow: 1;\\n}\\n\\n.site-footer li:last-of-type {\\n    margin-right: 0;\\n}\\n\\n@media (max-width: 768px) {\\n    h1 {\\n        font-size: 24px;\\n    }\\n\\n    h2 {\\n        font-size: 20px;\\n    }\\n\\n    h3 {\\n        font-size: 18px;\\n    }\\n\\n    h5 {\\n        font-size: 16px;\\n    }\\n\\n    h6 {\\n        font-size: 14px;\\n    }\\n\\n    p {\\n        font-size: 12px;\\n    }\\n\\n    header {\\n        height: 2.4rem;\\n    }\\n\\n    .site-header {\\n        padding: 0 .6rem;\\n        height: 2.4rem;\\n        position: fixed;\\n        top: 0;\\n        left: 0;\\n        right: 0;\\n        z-index: 3;\\n        background: #FFFFFF;\\n        box-sizing: border-box;\\n    }\\n\\n    .large-screen-nav {\\n        display: none;\\n    }\\n\\n    .small-screen-nav {\\n        display: block;\\n    }\\n\\n    .small-screen-nav img {\\n        width: .76rem;\\n        height: auto;\\n    }\\n\\n    .small-screen-nav nav {\\n        position: absolute;\\n        overflow: hidden;\\n        width: 100vw;\\n        top: 2.4rem;\\n        height: 0;\\n        left: 0;\\n    }\\n\\n    .small-screen-nav .visibleNav {\\n        height: 100vh;\\n        background: rgba(0, 0, 0, .4);\\n        border-top: 1px solid #f8f9f9;\\n    }\\n\\n    .small-screen-nav ul {\\n        display: block;\\n        text-align: center;\\n        transform: translate(-100px, 0);\\n    }\\n\\n    .visibleNav ul {\\n        transform: translate(0, 0);\\n        transition: all .2s linear;\\n    }\\n\\n    .small-screen-nav li {\\n        color: #333333;\\n        font-size: 16px;\\n        line-height: 2rem;\\n        background: #FFFFFF;\\n    }\\n\\n    .site-footer {\\n        padding: .42rem 1rem;\\n    }\\n\\n    .site-footer p {\\n        font-size: 14px;\\n    }\\n\\n    .site-footer input {\\n        width: 75vw;\\n        height: 36px;\\n    }\\n\\n    .site-footer button {\\n        line-height: 36px;\\n    }\\n\\n    .site-footer ul {\\n        margin: 0;\\n        flex-wrap: wrap;\\n    }\\n\\n    .site-footer ul li:nth-of-type(1) {\\n        margin: 0 0 10px;\\n    }\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/assets/index.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ../assets/images/logo.png */ \"./src/assets/images/logo.png\"));\n// Module\nexports.push([module.i, \"body,\\np,\\nh1,\\nh2,\\nh3,\\nh4,\\nh5,\\nh6,\\nul,\\nli,\\ninput {\\n    padding: 0;\\n    margin: 0;\\n    color: #333333;\\n    font-weight: normal;\\n    box-sizing: border-box;\\n}\\n\\nh1 {\\n    font-size: 48px;\\n}\\n\\nh2 {\\n    font-size: 36px;\\n}\\n\\nh3 {\\n    font-size: 32px;\\n    font-weight: 500;\\n}\\n\\nh5 {\\n    font-weight: 400;\\n    font-size: 20px;\\n    color: #FFFFFF;\\n}\\n\\np {\\n    font-size: 14px;\\n    color: #666666;\\n}\\n\\nh6 {\\n    font-size: 18px;\\n}\\n\\na {\\n    color: inherit;\\n    text-decoration: none;\\n}\\n\\nul {\\n    list-style: none;\\n    display: flex;\\n}\\n\\ninput {\\n    background-color: transparent;\\n    border: 1px solid #DDE1E3;\\n    padding: 0 16px;\\n    color: #FFFFFF;\\n    font-size: 14px;\\n}\\n\\ninput::-webkit-input-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput::-moz-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput:-ms-input-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput::-ms-input-placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\ninput::placeholder {\\n    color: #7A8C94;\\n    font-size: 14px;\\n}\\n\\n:focus {\\n    outline: none;\\n}\\n\\nbutton {\\n    background-color: transparent;\\n    border: 1px solid #EBEDEF;\\n    color: #FFFFFF;\\n    font-size: 14px;\\n}\\n\\nbutton:active,\\nbutton:hover {\\n    background-color: rgba(255, 255, 255, .1);\\n}\\n\\n/* 1vw = 14.4px */\\n/* 7vw = 100.8px = 1rem */\\n/* 约等于 1rem = 100px */\\nhtml {\\n    font-size: 7vw;\\n    width: 100vw;\\n}\\n\\n.site-header {\\n    display: flex;\\n    align-items: center;\\n    justify-content: space-between;\\n    padding: 0 1.17rem 0 1.21rem;\\n}\\n\\n.site-header > a {\\n    display: block;\\n    width: 1.26rem;\\n    align-self: stretch;\\n    background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat center;\\n    background-size: 100% auto;\\n}\\n\\n.large-screen-nav li {\\n    line-height: .66rem;\\n    height: .66rem;\\n    width: 114px;\\n    color: #666666;\\n    font-size: 16px;\\n    text-align: center;\\n    box-sizing: border-box;\\n}\\n\\n.large-screen-nav li:hover{\\n    border-bottom: 2px solid #007AFF;\\n    color: #007AFF;\\n}\\n\\n.small-screen-nav {\\n    display: none;\\n}\\n\\n.site-header a {\\n    color: inherit;\\n}\\n\\n.site-footer {\\n    background: #014A6D;\\n    padding: .42rem 2rem 0;\\n}\\n\\n.site-footer p {\\n    font-size: 16px;\\n    color: #EBEDEF;\\n    margin: .28rem 0;\\n    font-weight: 300;\\n}\\n\\n.site-footer>div {\\n    display: flex;\\n    justify-content: space-between;\\n    align-items: flex-start;\\n    flex-wrap: wrap;\\n}\\n\\n.site-footer input {\\n    display: block;\\n    width: 4.80rem;\\n    height: 48px;\\n    margin: .24rem 0;\\n}\\n\\n.site-footer button {\\n    display: block;\\n    width: 2.4rem;\\n    line-height: 48px;\\n    font-size: 14px;\\n    margin: .24rem 0 .42rem;\\n}\\n\\n.site-footer button:hover {\\n    cursor: pointer;\\n}\\n\\n\\n.site-footer ul {\\n    display: flex;\\n    font-size: 14px;\\n    color: #FFFFFF;\\n    margin: 0 -80px 0;\\n    line-height: .76rem;\\n}\\n\\n.site-footer li {\\n    color: #FFFFFF;\\n    margin-right: 30px;\\n}\\n\\n.site-footer ul li:nth-of-type(1) {\\n    flex-grow: 1;\\n}\\n\\n.site-footer li:last-of-type {\\n    margin-right: 0;\\n}\\n\\n@media (max-width: 768px) {\\n    h1 {\\n        font-size: 24px;\\n    }\\n\\n    h2 {\\n        font-size: 20px;\\n    }\\n\\n    h3 {\\n        font-size: 18px;\\n    }\\n\\n    h5 {\\n        font-size: 16px;\\n    }\\n\\n    h6 {\\n        font-size: 14px;\\n    }\\n\\n    p {\\n        font-size: 12px;\\n    }\\n\\n    header {\\n        height: 2.4rem;\\n    }\\n\\n    .site-header {\\n        padding: 0 .6rem;\\n        height: 2.4rem;\\n        position: fixed;\\n        top: 0;\\n        left: 0;\\n        right: 0;\\n        z-index: 3;\\n        background: #FFFFFF;\\n        box-sizing: border-box;\\n    }\\n\\n    .site-header > a {\\n        width: 100px;\\n    }\\n\\n    .large-screen-nav {\\n        display: none;\\n    }\\n\\n    .small-screen-nav {\\n        display: block;\\n    }\\n\\n    .small-screen-nav img {\\n        width: .76rem;\\n        height: auto;\\n    }\\n\\n    .small-screen-nav nav {\\n        position: absolute;\\n        overflow: hidden;\\n        width: 100vw;\\n        top: 2.4rem;\\n        height: 0;\\n        left: 0;\\n    }\\n\\n    .small-screen-nav .visibleNav {\\n        height: 100vh;\\n        background: rgba(0, 0, 0, .4);\\n        border-top: 1px solid #f8f9f9;\\n    }\\n\\n    .small-screen-nav ul {\\n        display: block;\\n        text-align: center;\\n        transform: translate(-100px, 0);\\n    }\\n\\n    .visibleNav ul {\\n        transform: translate(0, 0);\\n        transition: all .2s linear;\\n    }\\n\\n    .small-screen-nav li {\\n        color: #333333;\\n        font-size: 16px;\\n        line-height: 2rem;\\n        background: #FFFFFF;\\n    }\\n\\n    .site-footer {\\n        padding: .42rem 1rem;\\n    }\\n\\n    .site-footer p {\\n        font-size: 14px;\\n    }\\n\\n    .site-footer input {\\n        width: 75vw;\\n        height: 36px;\\n    }\\n\\n    .site-footer button {\\n        line-height: 36px;\\n    }\\n\\n    .site-footer ul {\\n        margin: 0;\\n        flex-wrap: wrap;\\n    }\\n\\n    .site-footer ul li:nth-of-type(1) {\\n        margin: 0 0 10px;\\n    }\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/assets/index.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css":
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src!./src/components/home/home.css ***!
+  \************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ../../assets/images/pageImg.png */ \"./src/assets/images/pageImg.png\"));\n// Module\nexports.push([module.i, \".page_home>div {\\n    position: relative;\\n    display: flex;\\n    align-items: center;\\n    /* justify-content: center; */\\n    box-sizing: content-box;\\n}\\n\\n.page_home>div>img {\\n    position: absolute;\\n}\\n\\n.page_home>div>div {\\n    position: relative;\\n    z-index: 1;\\n}\\n\\n.page_home h1 {\\n    color: #000000;\\n}\\n\\n.page_home h2 {\\n    color: #007AFF;\\n}\\n\\n.system,\\n.cloud-clinic {\\n    background: linear-gradient(180deg, rgba(161, 196, 253, 1) 0%, rgba(194, 233, 251, 1) 100%);\\n}\\n\\n.page_home p {\\n    font-size: 20px;\\n    max-width: 3.41rem;\\n    margin: 20px 0 27px;\\n}\\n\\n.erp p {\\n    margin: 0;\\n}\\n\\n.erp .erp-description {\\n    color: #8E93BC;\\n    font-size: 18px;\\n    margin: .1rem 0 .35rem;\\n}\\n\\n.erp-description::after {\\n    content: '';\\n    display: block;\\n    height: 4px;\\n    width: .64rem;\\n    background: #3CB379;\\n    margin: .2rem 0 0;\\n}\\n\\n.page_home a {\\n    color: #007AFF;\\n    font-size: 20px;\\n}\\n\\n.erp a {\\n    display: inline-block;\\n    padding: .13rem .32rem;\\n    color: #FFFFFF;\\n    background: #007AFF;\\n    border-radius: .06rem;\\n    font-size: 16px;\\n}\\n\\n.erp a:hover {\\n    /*  */\\n    background-color: #2268D5;\\n}\\n\\n.page_home .erp {\\n    position: relative;\\n    padding: 1.08rem 0 .14rem 1.2rem;\\n    justify-content: space-between;\\n    align-items: flex-start;\\n    background: no-repeat center/100% url(\" + ___CSS_LOADER_URL___0___ + \");\\n    box-sizing: content-box;\\n    min-height: 5.69rem;\\n}\\n\\n.page_home .erp>div {\\n    margin: .66rem 0 0;\\n    position: relative;\\n    z-index: 1;\\n}\\n\\n.page_home .instrument {\\n    padding: .6rem 1.3rem .6rem 1.2rem;\\n    min-height: 5rem;\\n    justify-content: flex-end;\\n\\n}\\n\\n.page_home .system {\\n    padding: .6rem 1.2rem .6rem 1.3rem;\\n    min-height: 4.99rem;\\n}\\n\\n.page_home .logistics {\\n    padding: .7rem 2.33rem .76rem 1.53rem;\\n    min-height: 4.74rem;\\n    justify-content: flex-end;\\n}\\n\\n.page_home .cloud-clinic {\\n    padding: .42rem 0;\\n    min-height: 3.39rem;\\n    flex-direction: column;\\n    justify-content: flex-start;\\n}\\n\\n.erp img {\\n    width: 6.63rem;\\n    height: auto;\\n    position: absolute;\\n    right: 0;\\n    top: 1.08rem;\\n    transform: translate(0, 0);\\n    -webkit-animation: upDown 5s linear 1s infinite;\\n            animation: upDown 5s linear 1s infinite;\\n}\\n\\n.instrument img {\\n    top: .6rem;\\n    left: 1.2rem;\\n    width: 7.4rem;\\n    height: 5rem;\\n    /* margin: 0 1.09rem 0 0; */\\n}\\n\\n.system img {\\n    top: .6rem;\\n    right: 1.2rem;\\n    width: 7.44rem;\\n    height: 4.99rem;\\n    margin: 0 0 0 1.05rem;\\n}\\n\\n.logistics img {\\n    top: .7rem;\\n    left: 1.53rem;\\n    width: 5.08rem;\\n    height: 4.74rem;\\n    margin: 0 2.05rem 0 0;\\n}\\n\\n.page_home .cloud-clinic>div {\\n    align-self: stretch;\\n    text-align: center;\\n}\\n\\n.page_home .cloud-clinic p {\\n    max-width: 5.3rem;\\n    margin: .1rem auto .15rem;\\n}\\n\\n.cloud-clinic img {\\n    width: 11.12rem;\\n    height: auto;\\n    margin: .32rem 0 0;\\n}\\n\\n.page_home .cloud-clinic img {\\n    position: relative;\\n}\\n\\n@-webkit-keyframes upDown {\\n    0% {\\n        transform: translate(0, 0)\\n    }\\n\\n    25% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    28% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    50% {\\n        transform: translate(0, 0)\\n    }\\n\\n    75% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    80% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    100% {\\n        transform: translate(0, 0)\\n    }\\n\\n}\\n\\n@keyframes upDown {\\n    0% {\\n        transform: translate(0, 0)\\n    }\\n\\n    25% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    28% {\\n        transform: translate(0, -.3rem)\\n    }\\n\\n    50% {\\n        transform: translate(0, 0)\\n    }\\n\\n    75% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    80% {\\n        transform: translate(0, .25rem)\\n    }\\n\\n    100% {\\n        transform: translate(0, 0)\\n    }\\n\\n}\\n\\n@media (max-width: 768px) {\\n\\n    .page_home a {\\n        font-size: 16px;\\n    }\\n\\n    .page_home p {\\n        font-size: 14px;\\n        margin: 16px 0 20px;\\n        max-width: 188px;\\n    }\\n\\n    .erp .erp-description {\\n        font-size: 12px;\\n    }\\n\\n    .erp a {\\n        /* width: 64px;\\n        line-height: 24px; */\\n        font-size: 12px;\\n        border-radius: 4px;\\n    }\\n\\n    .page_home .erp img {\\n        width: 6rem;\\n        height: auto;\\n        top: auto;\\n        bottom: 1rem;\\n    }\\n\\n    .page_home .erp>div {\\n        margin: .6rem 0 0;\\n        position: relative;\\n        z-index: 1;\\n    }\\n\\n    .page_home>div>img {\\n        top: 50%;\\n        transform: translateY(-50%);\\n    }\\n\\n    .instrument img {\\n        left: .6rem;\\n        width: 5rem;\\n        height: auto;\\n    }\\n\\n    .page_home .instrument {\\n        padding: .6rem .6rem;\\n    }\\n\\n    .system img {\\n        right: .6rem;\\n        width: 6rem;\\n        height: auto;\\n    }\\n\\n    .page_home .system {\\n        padding: .6rem;\\n    }\\n\\n    .logistics img {\\n        left: .6rem;\\n        width: 5rem;\\n        height: auto;\\n    }\\n\\n    .page_home .logistics {\\n        padding: .6rem;\\n    }\\n\\n    .page_home .cloud-clinic {\\n        padding: .6rem;\\n    }\\n\\n    .page_home .cloud-clinic p {\\n        max-width: 100%;\\n    }\\n\\n    .page_home .cloud-clinic img {\\n        transform: translate(0, 0)\\n    }\\n\\n}\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/components/home/home.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src!./src/subPage/cloud-clinic/style.css ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Imports\nvar getUrl = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\nvar ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(/*! ./images/problemImg.png */ \"./src/subPage/cloud-clinic/images/problemImg.png\"));\nvar ___CSS_LOADER_URL___1___ = getUrl(__webpack_require__(/*! ./images/ui.png */ \"./src/subPage/cloud-clinic/images/ui.png\"));\nvar ___CSS_LOADER_URL___2___ = getUrl(__webpack_require__(/*! ./images/om.png */ \"./src/subPage/cloud-clinic/images/om.png\"));\nvar ___CSS_LOADER_URL___3___ = getUrl(__webpack_require__(/*! ./images/bm.png */ \"./src/subPage/cloud-clinic/images/bm.png\"));\nvar ___CSS_LOADER_URL___4___ = getUrl(__webpack_require__(/*! ./images/rule.png */ \"./src/subPage/cloud-clinic/images/rule.png\"));\n// Module\nexports.push([module.i, \"\\n.page-title p {\\n    color: #666666;\\n    font-size: 14px;\\n    max-width: 4.5rem;\\n    margin: 20px 0 0;\\n}\\n\\n.page-title div{\\n    display: inline-block;\\n    vertical-align: text-top;\\n}\\n\\n.title-text {\\n    margin: 20px 0.73rem 0 0;\\n}\\n\\n.page-title img {\\n    width: 6.67rem;\\n    height: 2.04rem;\\n}\\n\\n.page-title {\\n    padding: 0.96rem 0 0.50rem 1.3rem;\\n    background: linear-gradient(180deg, rgba(161, 196, 253, 1) 0%, rgba(194, 233, 251, 1) 100%);\\n    /* background-image: url('../home/assets/cloud-clinic.png');\\n    background-size: 6.67rem 2.04rem;\\n    background-repeat: no-repeat;\\n    background-position: 0.96rem 6.53rem; */\\n}\\n\\n.cloud-clinic-problem, .cloud-clinic-solution {\\n    padding: .8rem 0 1rem;\\n    text-align: center;\\n}\\n\\n.cloud-clinic-problem {\\n    background: url(\" + ___CSS_LOADER_URL___0___ + \") no-repeat center;\\n    background-size: 100%;\\n}\\n\\n.cloud-clinic-problem > div {\\n    display: flex;\\n    margin: .6rem 0 0;\\n    padding: 0 1.2rem 0;\\n}\\n\\n.cloud-clinic-problem > div > div {\\n    margin-right: .75rem;\\n}\\n\\n.cloud-clinic-problem > div > div:last-of-type {\\n    margin-right: 0;\\n}\\n\\n.cloud-clinic-problem h6 {\\n    margin: 0 0 20px;\\n    font-weight: 500;\\n}\\n\\n.cloud-clinic-problem p {\\n    line-height: 1.75;\\n}\\n\\n\\n.cloud-clinic-solution {\\n    padding: .8rem 0 1.2rem;\\n}\\n\\n.cloud-clinic-solution > div {\\n    display: flex;\\n    justify-content: center;\\n    margin: 35px 0 0;\\n}\\n\\n.cloud-clinic-solution > div > div {\\n    width: 2.85rem;\\n    height: 2.98rem;\\n    box-shadow:0px 8px 16px 0px rgba(0,0,0,0.1);\\n    margin-right: 20px;\\n    padding: 0 .4rem 0;\\n    box-sizing: border-box;\\n}\\n\\n.lightweight {\\n    background: url(\" + ___CSS_LOADER_URL___1___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.convenient {\\n    background: url(\" + ___CSS_LOADER_URL___2___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.dispatch-free {\\n    background: url(\" + ___CSS_LOADER_URL___3___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.unified-management {\\n    background: url(\" + ___CSS_LOADER_URL___4___ + \") no-repeat center .56rem;\\n    background-size: .44rem auto;\\n}\\n\\n.cloud-clinic-solution > div > div:last-of-type {\\n    margin-right: 0;\\n}\\n\\n.cloud-clinic-solution h6 {\\n    margin: 1.29rem 0 .2rem;\\n}\\n\\n@media (max-width: 768px) {\\n    .page-title {\\n        padding: 0.96rem .6rem 0.50rem;\\n    }\\n\\n    .title-text {\\n        margin: 0 0 20px;\\n    }\\n    .page-title div{\\n        display: block;\\n        text-align: center;\\n    }\\n\\n    .page-title p {\\n        max-width: none;\\n    }\\n\\n    .cloud-clinic-problem {\\n        background: none;\\n    }\\n\\n    .cloud-clinic-problem > div {\\n        flex-wrap: wrap;\\n    }\\n\\n    .cloud-clinic-problem h6 {\\n        margin: 20px 0 10px;\\n    }\\n\\n    .cloud-clinic-solution > div {\\n        flex-wrap: wrap;\\n    }\\n\\n    .cloud-clinic-solution > div > div {\\n        width: 75vw;\\n        height: auto;\\n        margin: 0 0 20px 0;\\n        padding: 0 10px 20px;\\n    }\\n\\n    .lightweight, .convenient, .dispatch-free, .unified-management {\\n        background-size: 20px auto;\\n    }\\n\\n    .cloud-clinic-solution h6 {\\n        margin: 50px 0 10px;\\n    }\\n}\\n\\n\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/style.css?./node_modules/css-loader/dist/cjs.js??ref--4-1!./node_modules/postcss-loader/src");
 
 /***/ }),
 
@@ -968,99 +979,6 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
-/***/ "./src/aboutUs/assets/Page.js":
-/*!************************************!*\
-  !*** ./src/aboutUs/assets/Page.js ***!
-  \************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ \"./src/aboutUs/assets/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\");\nvar _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\", 1);\n/* harmony import */ var _js_updateNews__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./js/updateNews */ \"./src/aboutUs/assets/js/updateNews.js\");\n/* harmony import */ var _js_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/pagination */ \"./src/aboutUs/assets/js/pagination.js\");\n\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _index_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        //  获取数据,初次渲染前10条\n        let newsList = _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__.news.slice(0, 10),\n            length = _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_1__.news.length\n\n        document.getElementById('about-news-list').appendChild(Object(_js_updateNews__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(newsList))\n        document.getElementById('pagination').appendChild(Object(_js_pagination__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(Math.ceil(length / 10)))\n    }\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/Page.js?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/imgs/aboutImg.png":
-/*!**********************************************!*\
-  !*** ./src/aboutUs/assets/imgs/aboutImg.png ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"imgs/76fccdf80a6bf7d413111951b06e86c2.png\";\n\n//# sourceURL=webpack:///./src/aboutUs/assets/imgs/aboutImg.png?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/index.css":
-/*!**************************************!*\
-  !*** ./src/aboutUs/assets/index.css ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./index.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/aboutUs/assets/index.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/aboutUs/assets/index.css?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/index.html":
-/*!***************************************!*\
-  !*** ./src/aboutUs/assets/index.html ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = \"<div class=\\\"page_about\\\">\\n    <div class=\\\"about-title\\\">\\n        <h3>关于查姆</h3>\\n        <p>上海查姆成立于2010年，核心团队成员皆在ERP领域有着6-8年的相关经验，公司自研产品包含医疗器械版ERP、仓储系统、第三方物流系统、云诊所等符合GSP相关要求的软件产品。自研软件产品服务于上海泰美医疗器械有限公司、上海方承医疗器械有限公司、聚赢齿科技术（上海）有限公司、海王业威医疗科技（上海）有限公司、上海励齿医疗科技有限公司、上海康买医疗科技有限公司等十余家医疗相关企业，合作年限已达6-7年，在业内均获得较好口碑及评价。\\n        </p>\\n    </div>\\n    <div id=\\\"about-news-list\\\" class=\\\"about-news-list\\\">\\n        <h3>新闻资讯</h3>\\n    </div>\\n    <div id=\\\"pagination\\\" class=\\\"pagination\\\">\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/aboutUs/assets/index.html?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/js/pagination.js":
-/*!*********************************************!*\
-  !*** ./src/aboutUs/assets/js/pagination.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _updatePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updatePage */ \"./src/aboutUs/assets/js/updatePage.js\");\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (length) {\n    let ul = document.createElement('ul'),\n        initPage = 1\n    while (length) {\n        let currentPage = initPage\n        let li = document.createElement('li'),\n            p = document.createElement('p'),\n            a = document.createElement('a')\n\n        if (initPage === 1) li.classList.add('active-page')\n        a.href = 'javascript:'\n        // 添加监听\n        a.innerText = initPage\n        p.appendChild(a)\n        li.appendChild(p)\n        ul.appendChild(li)\n        a.addEventListener('click', () => {\n            Object(_updatePage__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(currentPage)\n            // 移除类\n            if (document.querySelector('.active-page')) document.querySelector('.active-page').classList.remove('active-page')\n            // 添加类\n            li.classList.add('active-page')\n        })\n        initPage++\n        length--\n    }\n\n    return ul\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/js/pagination.js?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/js/updateNews.js":
-/*!*********************************************!*\
-  !*** ./src/aboutUs/assets/js/updateNews.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../router/index */ \"./src/router/index.js\");\n\n\nfunction initNewsList(newsList) {\n    let ul = document.createElement('ul')\n    for (let i = 0; i < newsList.length; i++) {\n        let li = document.createElement('li'),\n            h5 = document.createElement('h5'),\n            p = document.createElement('p')\n        // ,\n        // dateP = document.createElement('p')\n        h5.innerText = newsList[i].title\n        p.innerText = newsList[i].content\n        // dateP.innerText = newsList[i].date\n        li.appendChild(h5)\n        li.appendChild(p)\n        // li.appendChild(dateP)\n        li.addEventListener('click', () => {\n            // 加载其他内容\n            _router_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"].skip('news', `title=${newsList[i].title}`)\n            // router.go('/about/news', newsList[i].title)\n        })\n        ul.appendChild(li)\n    }\n\n    return ul\n}\n\nfunction updateNewsList(newsList) {\n    let ul = document.querySelector('#about-news-list ul'),\n        liList = document.querySelectorAll('#about-news-list ul li'),\n        newsLength = newsList.length,\n        liLength = liList.length,\n        removeLength = 0\n    // \n    for (let i = 0; i < liLength; i++) {\n        if (i >= newsLength) {\n            document.querySelector('#about-news-list ul').removeChild(document.querySelectorAll('#about-news-list ul li')[i - removeLength])\n            removeLength++\n            continue\n        }\n        document.querySelectorAll('#about-news-list ul li h5')[i].innerText = newsList[i].title\n        document.querySelectorAll('#about-news-list ul li p')[i].innerText = newsList[i].content\n    }\n\n    if (newsLength > liLength) {\n        for (let i = newsLength - liLength; i > 0; i--) {\n            let li = document.createElement('li'),\n                h5 = document.createElement('h5'),\n                p = document.createElement('p')\n            // ,\n            // dateP = document.createElement('p')\n            // newsLength - liLength = 2, i = 2 newsLength - i = 2\n            // newsLength - liLength = 1, i = 1 newsLength - i = 3\n            // i = 0 newsLength - i - 1 = 3 \n            // i = 1 newsLength - i - 1 = 2\n            h5.innerText = newsList[newsLength - i].title\n            p.innerText = newsList[newsLength - i].content\n            // dateP.innerText = newsList[i].date\n            li.appendChild(h5)\n            li.appendChild(p)\n            // li.appendChild(dateP)\n            li.addEventListener('click', () => {\n                _router_index__WEBPACK_IMPORTED_MODULE_0__[\"default\"].skip('news', `title=${newsList[newsLength - i].title}`)\n                // router.go('/about/news', newsList[newsLength - i].title)\n            })\n            ul.appendChild(li)\n        }\n    }\n}\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (newsList) {\n    // 根据新闻数据创建ul\n    if (document.querySelector('#about-news-list ul')) updateNewsList(newsList)\n    else return initNewsList(newsList)\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/js/updateNews.js?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/assets/js/updatePage.js":
-/*!*********************************************!*\
-  !*** ./src/aboutUs/assets/js/updatePage.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\");\nvar _assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../../assets/data/newsList.json */ \"./src/assets/data/newsList.json\", 1);\n/* harmony import */ var _updateNews__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateNews */ \"./src/aboutUs/assets/js/updateNews.js\");\n// 查询数据\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (function (page) {\n    // page 1: 0~10 10 ~ 20 20 ~ 30\n    Object(_updateNews__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(_assets_data_newsList_json__WEBPACK_IMPORTED_MODULE_0__.news.slice((page - 1) * 10, (page * 10)))\n});\n\n//# sourceURL=webpack:///./src/aboutUs/assets/js/updatePage.js?");
-
-/***/ }),
-
-/***/ "./src/aboutUs/index.js":
-/*!******************************!*\
-  !*** ./src/aboutUs/index.js ***!
-  \******************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../assets/index.css */ \"./src/assets/index.css\");\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/index.css */ \"./src/aboutUs/assets/index.css\");\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_assets_index_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _assets_js_common_index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../assets/js/common/index */ \"./src/assets/js/common/index.js\");\n/* harmony import */ var _assets_Page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./assets/Page */ \"./src/aboutUs/assets/Page.js\");\n// import template from './erp.html'\n\n\n\n\n// import header from '../assets/components/header.html'\n// import footer from '../assets/components/footer.html'\n\n\n// let Header = document.getElementsByTagName('header')[0],\n//     Footer = document.getElementsByTagName('footer')[0]\n\n// Header.innerHTML = header\n// Footer.innerHTML = footer\nObject(_assets_js_common_index__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\nnew _assets_Page__WEBPACK_IMPORTED_MODULE_3__[\"default\"]().mount(document.getElementById('site-page-content'))\n\n//# sourceURL=webpack:///./src/aboutUs/index.js?");
-
-/***/ }),
-
 /***/ "./src/assets/components/footer.html":
 /*!*******************************************!*\
   !*** ./src/assets/components/footer.html ***!
@@ -1079,18 +997,7 @@ eval("module.exports = \"<div class=\\\"site-footer\\\">\\n    <div>\\n        <
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = \"<div class=\\\"site-header\\\">\\n    <img src=\\\"\" + __webpack_require__(/*! ../images/logo.png */ \"./src/assets/images/logo.png\") + \"\\\">\\n    <div class=\\\"small-screen-nav\\\">\\n        <img src=\\\"\" + __webpack_require__(/*! ../images/menu.png */ \"./src/assets/images/menu.png\") + \"\\\">\\n        <nav>\\n            <ul>\\n                <li><a id=\\\"home-link\\\" href=\\\"./index.html\\\">首页</a></li>\\n                <!-- <li><a id=\\\"home-link\\\" href=\\\"javascript:\\\">首页</a></li> -->\\n                <!-- <li><a id=\\\"products-link\\\" href=\\\"javascript:\\\">产品中心</a></li> -->\\n                <li><a id=\\\"products-link\\\" href=\\\"./products.html\\\">产品中心</a></li>\\n                <!-- <li><a id=\\\"about-link\\\" href=\\\"javascript:\\\">关于我们</a></li> -->\\n                <li><a id=\\\"about-link\\\" href=\\\"./aboutCham.html\\\">关于我们</a></li>\\n            </ul>\\n        </nav>\\n    </div>\\n    <nav class=\\\"large-screen-nav\\\">\\n        <ul>\\n            <li><a id=\\\"home-link\\\" href=\\\"./index.html\\\">首页</a></li>\\n            <!-- <li><a id=\\\"home-link\\\" href=\\\"javascript:\\\">首页</a></li> -->\\n            <!-- <li><a id=\\\"products-link\\\" href=\\\"javascript:\\\">产品中心</a></li> -->\\n            <li><a id=\\\"products-link\\\" href=\\\"./products.html\\\">产品中心</a></li>\\n            <!-- <li><a id=\\\"about-link\\\" href=\\\"javascript:\\\">关于我们</a></li> -->\\n            <li><a id=\\\"about-link\\\" href=\\\"./aboutCham.html\\\">关于我们</a></li>\\n        </ul>\\n    </nav>\\n</div>\";\n\n//# sourceURL=webpack:///./src/assets/components/header.html?");
-
-/***/ }),
-
-/***/ "./src/assets/data/newsList.json":
-/*!***************************************!*\
-  !*** ./src/assets/data/newsList.json ***!
-  \***************************************/
-/*! exports provided: news, default */
-/***/ (function(module) {
-
-eval("module.exports = JSON.parse(\"{\\\"news\\\":[{\\\"title\\\":\\\"1\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"2\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"3\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"4\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"5\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"6\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"7\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"8\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"9\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"},{\\\"title\\\":\\\"10\\\",\\\"content\\\":\\\"编者按：在迎来改革开放40周年之际，为铭记上海产业在艰难中起步，在探索中发展，在新的起点上扬帆再启航，传承上海产业工人迎难而上、无私….\\\",\\\"date\\\":\\\"2018-9-30\\\"}]}\");\n\n//# sourceURL=webpack:///./src/assets/data/newsList.json?");
+eval("module.exports = \"<div class=\\\"site-header\\\">\\n    <a href=\\\"./index.html\\\">\\n        <!-- <img src=\\\"../images/logo.png\\\"> -->\\n    </a>\\n    <div class=\\\"small-screen-nav\\\">\\n        <img src=\\\"\" + __webpack_require__(/*! ../images/menu.png */ \"./src/assets/images/menu.png\") + \"\\\">\\n        <nav>\\n            <ul>\\n                <li><a id=\\\"home-link\\\" href=\\\"./index.html\\\">首页</a></li>\\n                <!-- <li><a id=\\\"home-link\\\" href=\\\"javascript:\\\">首页</a></li> -->\\n                <!-- <li><a id=\\\"products-link\\\" href=\\\"javascript:\\\">产品中心</a></li> -->\\n                <li><a id=\\\"products-link\\\" href=\\\"./products.html\\\">产品中心</a></li>\\n                <!-- <li><a id=\\\"about-link\\\" href=\\\"javascript:\\\">关于我们</a></li> -->\\n                <li><a id=\\\"about-link\\\" href=\\\"./aboutCham.html\\\">关于我们</a></li>\\n            </ul>\\n        </nav>\\n    </div>\\n    <nav class=\\\"large-screen-nav\\\">\\n        <ul>\\n            <li><a id=\\\"home-link\\\" href=\\\"./index.html\\\">首页</a></li>\\n            <!-- <li><a id=\\\"home-link\\\" href=\\\"javascript:\\\">首页</a></li> -->\\n            <!-- <li><a id=\\\"products-link\\\" href=\\\"javascript:\\\">产品中心</a></li> -->\\n            <li><a id=\\\"products-link\\\" href=\\\"./products.html\\\">产品中心</a></li>\\n            <!-- <li><a id=\\\"about-link\\\" href=\\\"javascript:\\\">关于我们</a></li> -->\\n            <li><a id=\\\"about-link\\\" href=\\\"./aboutCham.html\\\">关于我们</a></li>\\n        </ul>\\n    </nav>\\n</div>\";\n\n//# sourceURL=webpack:///./src/assets/components/header.html?");
 
 /***/ }),
 
@@ -1102,6 +1009,17 @@ eval("module.exports = JSON.parse(\"{\\\"news\\\":[{\\\"title\\\":\\\"1\\\",\\\"
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("module.exports = __webpack_require__.p + \"imgs/1f2016f9c7c7fda9bc3bb971dbcf79cd.png\";\n\n//# sourceURL=webpack:///./src/assets/images/close.png?");
+
+/***/ }),
+
+/***/ "./src/assets/images/cloud-clinic.png":
+/*!********************************************!*\
+  !*** ./src/assets/images/cloud-clinic.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/dd745141b8552f6237384b1c9a322740.png\";\n\n//# sourceURL=webpack:///./src/assets/images/cloud-clinic.png?");
 
 /***/ }),
 
@@ -1127,6 +1045,17 @@ eval("module.exports = __webpack_require__.p + \"imgs/a38ed85954027e2eb8c671f16d
 
 /***/ }),
 
+/***/ "./src/assets/images/pageImg.png":
+/*!***************************************!*\
+  !*** ./src/assets/images/pageImg.png ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/4e36abc238e95f675cb38639f3e1c832.png\";\n\n//# sourceURL=webpack:///./src/assets/images/pageImg.png?");
+
+/***/ }),
+
 /***/ "./src/assets/index.css":
 /*!******************************!*\
   !*** ./src/assets/index.css ***!
@@ -1146,7 +1075,7 @@ eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _view_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view/header */ \"./src/assets/js/common/view/header.js\");\n/* harmony import */ var _view_footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view/footer */ \"./src/assets/js/common/view/footer.js\");\n/* harmony import */ var _images_menu_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../images/menu.png */ \"./src/assets/images/menu.png\");\n/* harmony import */ var _images_menu_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_menu_png__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _images_close_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/close.png */ \"./src/assets/images/close.png\");\n/* harmony import */ var _images_close_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_close_png__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _ieConfig_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ieConfig/index */ \"./src/assets/js/ieConfig/index.js\");\n\n\n\n\n\n\n\n\n// 显示菜单\nfunction showMenu() {\n    const img = document.querySelector('.small-screen-nav img')\n    img.src = _images_close_png__WEBPACK_IMPORTED_MODULE_3___default.a\n    \n    _ieConfig_index__WEBPACK_IMPORTED_MODULE_4__[\"default\"].addClass(document.querySelector('.small-screen-nav nav'), 'visibleNav')\n    // document.querySelector('.small-screen-nav nav').classList.add('visibleNav')\n\n    // className\n    img.removeEventListener('click', showMenu)\n    img.addEventListener('click', hideMenu)\n}\n\n// 收起菜单\nfunction hideMenu() {\n    const img = document.querySelector('.small-screen-nav img')\n    img.src = _images_menu_png__WEBPACK_IMPORTED_MODULE_2___default.a\n    _ieConfig_index__WEBPACK_IMPORTED_MODULE_4__[\"default\"].removeClass(document.querySelector('.small-screen-nav nav'), 'visibleNav')\n    // document.querySelector('.small-screen-nav nav').classList.remove('visibleNav')\n\n    img.removeEventListener('click', hideMenu)\n    img.addEventListener('click', showMenu)\n}\n// 写入页面header和footer\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n    // 页面内容\n    let Header = document.getElementsByTagName('header')[0],\n        Footer = document.getElementsByTagName('footer')[0]\n\n    new _view_header__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().mount(Header)\n    new _view_footer__WEBPACK_IMPORTED_MODULE_1__[\"default\"]().mount(Footer)\n\n    document.querySelector('.site-header img').onclick = () => {\n        location.pathname = '/index.html'\n    }\n\n    // 手机端的收起菜单按钮\n    // if (document.querySelector('.small-screen-nav img')) document.querySelector('.small-screen-nav img').onclick = () => { \n    //     document.querySelector('.small-screen-nav nav').classList.add('visibleNav')\n    // }\n\n\n    const img = document.querySelector('.small-screen-nav img')\n    if (img && img.addEventListener) img.addEventListener('click', showMenu) \n    else {\n        // IE \n    }\n});\n\n//# sourceURL=webpack:///./src/assets/js/common/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _view_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./view/header */ \"./src/assets/js/common/view/header.js\");\n/* harmony import */ var _view_footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./view/footer */ \"./src/assets/js/common/view/footer.js\");\n/* harmony import */ var _images_menu_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../images/menu.png */ \"./src/assets/images/menu.png\");\n/* harmony import */ var _images_menu_png__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_images_menu_png__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _images_close_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../images/close.png */ \"./src/assets/images/close.png\");\n/* harmony import */ var _images_close_png__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_images_close_png__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _ieConfig_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ieConfig/index */ \"./src/assets/js/ieConfig/index.js\");\n\n\n\n\n\n\n\n\n// 显示菜单\nfunction showMenu() {\n    const img = document.querySelector('.small-screen-nav img')\n    img.src = _images_close_png__WEBPACK_IMPORTED_MODULE_3___default.a\n    \n    _ieConfig_index__WEBPACK_IMPORTED_MODULE_4__[\"default\"].addClass(document.querySelector('.small-screen-nav nav'), 'visibleNav')\n    // document.querySelector('.small-screen-nav nav').classList.add('visibleNav')\n\n    // className\n    img.removeEventListener('click', showMenu)\n    img.addEventListener('click', hideMenu)\n}\n\n// 收起菜单\nfunction hideMenu() {\n    const img = document.querySelector('.small-screen-nav img')\n    img.src = _images_menu_png__WEBPACK_IMPORTED_MODULE_2___default.a\n    _ieConfig_index__WEBPACK_IMPORTED_MODULE_4__[\"default\"].removeClass(document.querySelector('.small-screen-nav nav'), 'visibleNav')\n    // document.querySelector('.small-screen-nav nav').classList.remove('visibleNav')\n\n    img.removeEventListener('click', hideMenu)\n    img.addEventListener('click', showMenu)\n}\n// 写入页面header和footer\n/* harmony default export */ __webpack_exports__[\"default\"] = (function () {\n    // 页面内容\n    let Header = document.getElementsByTagName('header')[0],\n        Footer = document.getElementsByTagName('footer')[0]\n\n    new _view_header__WEBPACK_IMPORTED_MODULE_0__[\"default\"]().mount(Header)\n    new _view_footer__WEBPACK_IMPORTED_MODULE_1__[\"default\"]().mount(Footer)\n\n    document.querySelector('.site-header img').onclick = () => {\n        // location.pathname = '/index.html'\n        \n    }\n\n    const img = document.querySelector('.small-screen-nav img')\n    if (img && img.addEventListener) img.addEventListener('click', showMenu) \n    else {\n        // IE \n    }\n});\n\n//# sourceURL=webpack:///./src/assets/js/common/index.js?");
 
 /***/ }),
 
@@ -1186,6 +1115,107 @@ eval("__webpack_require__.r(__webpack_exports__);\n// 添加类名\nfunction add
 
 /***/ }),
 
+/***/ "./src/components/home/assets/cloud-clinic.png":
+/*!*****************************************************!*\
+  !*** ./src/components/home/assets/cloud-clinic.png ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/dd745141b8552f6237384b1c9a322740.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/cloud-clinic.png?");
+
+/***/ }),
+
+/***/ "./src/components/home/assets/erp.png":
+/*!********************************************!*\
+  !*** ./src/components/home/assets/erp.png ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/8ae48d2f205b7365e1feb4b3cfcd01f5.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/erp.png?");
+
+/***/ }),
+
+/***/ "./src/components/home/assets/instrument.png":
+/*!***************************************************!*\
+  !*** ./src/components/home/assets/instrument.png ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/40f91733a6655c55e078b942db8d8720.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/instrument.png?");
+
+/***/ }),
+
+/***/ "./src/components/home/assets/logistics.png":
+/*!**************************************************!*\
+  !*** ./src/components/home/assets/logistics.png ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/24ac3a513cfac740589d1ef54d9a9d87.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/logistics.png?");
+
+/***/ }),
+
+/***/ "./src/components/home/assets/system.png":
+/*!***********************************************!*\
+  !*** ./src/components/home/assets/system.png ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/bcd338331a259768fcf2dcfdf5f6ce00.png\";\n\n//# sourceURL=webpack:///./src/components/home/assets/system.png?");
+
+/***/ }),
+
+/***/ "./src/components/home/home.css":
+/*!**************************************!*\
+  !*** ./src/components/home/home.css ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./home.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./home.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./home.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/components/home/home.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/components/home/home.css?");
+
+/***/ }),
+
+/***/ "./src/components/home/home.html":
+/*!***************************************!*\
+  !*** ./src/components/home/home.html ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = \"<!-- 首页 -->\\n<div class=\\\"page_home\\\">\\n    <div class=\\\"erp\\\">\\n        <div>\\n            <h2>医疗管理ERP</h2>\\n            <p class=\\\"erp-description\\\">符合药监系统的一体化ERP系统，涵盖企业进、销、存的管理，其报表分析系统亦能助力企业决策</p>\\n            <p>\\n                <!-- <a id='erp_link' href=\\\"javascript:\\\">了解更多</a> -->\\n                <p><a id='logistics_link' href=\\\"./products.html?product=instruments\\\">了解更多</a></p>\\n            </p>\\n        </div>\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/erp.png */ \"./src/components/home/assets/erp.png\") + \"\\\">\\n    </div>\\n    <div class=\\\"instrument\\\">\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/instrument.png */ \"./src/components/home/assets/instrument.png\") + \"\\\">\\n        <div>\\n            <h1>医疗器械版</h1>\\n            <p>符合新版GSP管理、软件操作简单、一键式安装、支持异地远程服务、数据安全稳定。</p>\\n            <!-- <p><a id='instruments_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n            <p><a id='logistics_link' href=\\\"./products.html?product=instruments\\\">了解更多</a></p>\\n        </div>\\n    </div>\\n    <div class=\\\"system\\\">\\n        <div>\\n            <h1>仓储系统</h1>\\n            <p>实现无纸化作业、加快拣货速度、提高拣货的准确率、降低培训成本、可追溯性和记录工作量。</p>\\n            <!-- <p><a id='warehousing-system_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n            <p><a id='logistics_link' href=\\\"./products.html?product=warehousing-system\\\">了解更多</a></p>\\n        </div>\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/system.png */ \"./src/components/home/assets/system.png\") + \"\\\">\\n    </div>\\n    <div class=\\\"logistics\\\">\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/logistics.png */ \"./src/components/home/assets/logistics.png\") + \"\\\">\\n        <div>\\n            <h1>第三方物流</h1>\\n            <p>通过系统对接的方式，保证多平台订单数据、结算数据的一致性，且系统涵盖完整的WMS系统，从收货入库到拣选出库的流程一应俱全。</p>\\n            <!-- <p><a id='logistics_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n            <p><a id='logistics_link' href=\\\"./products.html?product=logistics\\\">了解更多</a></p>\\n        </div>\\n    </div>\\n    <div class=\\\"cloud-clinic\\\">\\n        <div>\\n            <h1>云诊所</h1>\\n            <p>内外兼修的SaaS系统，提供多种诊所内部管理模块，外部客户使用的多种功能，包罗全部业务所需。</p>\\n            <p><a id='cloud-clinic_link' href=\\\"javascript:\\\">了解更多</a></p>\\n            <!-- <p><a id='cloud-clinic_link' href=\\\"javascript:\\\">了解更多</a></p> -->\\n        </div>\\n        <img src=\\\"\" + __webpack_require__(/*! ./assets/cloud-clinic.png */ \"./src/components/home/assets/cloud-clinic.png\") + \"\\\">\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/components/home/home.html?");
+
+/***/ }),
+
+/***/ "./src/components/home/home.js":
+/*!*************************************!*\
+  !*** ./src/components/home/home.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _home_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./home.html */ \"./src/components/home/home.html\");\n/* harmony import */ var _home_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_home_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _home_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home.css */ \"./src/components/home/home.css\");\n/* harmony import */ var _home_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_home_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _subPage_cloud_clinic_cloud_clinic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../subPage/cloud-clinic/cloud-clinic */ \"./src/subPage/cloud-clinic/cloud-clinic.js\");\n/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../router/index */ \"./src/router/index.js\");\n\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _home_html__WEBPACK_IMPORTED_MODULE_0___default.a\n\n        document.getElementById('cloud-clinic_link').addEventListener('click', (event) => {\n            window.scrollTo(0, 0)\n            _router_index__WEBPACK_IMPORTED_MODULE_3__[\"default\"].skip('cloud-clinic')\n            // router.go('/cloud-clinic')\n        })\n    }\n});\n\n//# sourceURL=webpack:///./src/components/home/home.js?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/index.css */ \"./src/assets/index.css\");\n/* harmony import */ var _assets_index_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_index_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _assets_js_common_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/js/common/index */ \"./src/assets/js/common/index.js\");\n/* harmony import */ var _components_home_home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/home/home */ \"./src/components/home/home.js\");\n\n// import router from './router/index'\n\n\n\n\n// import header from './assets/components/header.html'\n// import footer from './assets/components/footer.html'\n\n// let Header = document.getElementsByTagName('header')[0],\n//     Footer = document.getElementsByTagName('footer')[0]\n\n// Header.innerHTML = header\n// Footer.innerHTML = footer\n\n// 载入页面只要内容\n// router.start()\nObject(_assets_js_common_index__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\nnew _components_home_home__WEBPACK_IMPORTED_MODULE_2__[\"default\"]().mount(document.getElementById('site-page-content'))\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
 /***/ "./src/router/index.js":
 /*!*****************************!*\
   !*** ./src/router/index.js ***!
@@ -1207,6 +1237,95 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _rou
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ((path) => {\n    switch (path) {\n        case 'cloud-clinic':\n            return __webpack_require__.e(/*! import() | cloud-clinic */ \"cloud-clinic\").then(__webpack_require__.bind(null, /*! ../../subPage/cloud-clinic/cloud-clinic */ \"./src/subPage/cloud-clinic/cloud-clinic.js\"))\n        case 'news':\n            return __webpack_require__.e(/*! import() | news */ \"news\").then(__webpack_require__.bind(null, /*! ../../subPage/news/news */ \"./src/subPage/news/news.js\"))\n        default:\n            break;\n    }\n});\n\n\n//# sourceURL=webpack:///./src/router/routes/routes.js?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/cloud-clinic.html":
+/*!****************************************************!*\
+  !*** ./src/subPage/cloud-clinic/cloud-clinic.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = \"<div class=\\\"page_cloud-clinic\\\">\\n    <div class=\\\"page-title\\\">\\n        <div class=\\\"title-text\\\">\\n            <h2>云诊所</h2>\\n            <p>内外兼修的轻量级系统，提供包括公司体系及基础信息管理，内部CRM、ERP、财务薪酬、排班、内部培训，在线商城、IM、预约、公众号及回访中心等外部客户功能，包罗您的全部业务所需。</p>\\n        </div>\\n        <div>\\n            <img src=\\\"\" + __webpack_require__(/*! ../../assets/images/cloud-clinic.png */ \"./src/assets/images/cloud-clinic.png\") + \"\\\">\\n        </div>\\n    </div>\\n    <div class=\\\"cloud-clinic-problem\\\">\\n        <h3>是否遇见以下问题</h3>\\n        <div>\\n            <div>\\n                <h6>系统繁多，无法统一管理的问题</h6>\\n                <p>同一个公司有多套系统，分别管理不同流程、部门、分支，无法统一标准，统一管理，使得企业内部管理混乱。</p>\\n            </div>\\n            <div>\\n                <h6>系统复杂，不易操作的麻烦</h6>\\n                <p>系统功能繁多，角色权限不清晰；操作复杂，交互不友好，磨合期较长，不能及时有效的真正解决企业问题。</p>\\n            </div>\\n            <div>\\n                <h6>高额的系统培训成本</h6>\\n                <p>传统系统无操作手册可查，系统配置复杂，各层培训时间长，成本高，人力浪费严重，企业无法有效协同及管理。</p>\\n            </div>\\n        </div>\\n    </div>\\n    <div class=\\\"cloud-clinic-solution\\\">\\n        <h3>我们为您解决</h3>\\n        <div>\\n            <div class=\\\"lightweight\\\">\\n                <h6>轻量级</h6>\\n                <p>非庞大的系统，对于新建企业友好度较高，只需操作手册，免去各类培训成本。</p>\\n            </div>\\n            <div class=\\\"convenient\\\">\\n                <h6>一站式</h6>\\n                <p>包含CRM、ERP、IM、WMS、OMS等一系列的功能，一站式囊获多个系统内容。</p>\\n            </div>\\n            <div class=\\\"dispatch-free\\\">\\n                <h6>免部署</h6>\\n                <p>SaaS架构，免除系统部署及后续运维的人员配备，及相关服务器的成本费用。</p>\\n            </div>\\n            <div class=\\\"unified-management\\\">\\n                <h6>兼顾内外</h6>\\n                <p>对内管理及对客户使用集成为同一套系统，免去了系统来回导入产生错漏的可能。</p>\\n            </div>\\n        </div>\\n    </div>\\n</div>\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/cloud-clinic.html?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/cloud-clinic.js":
+/*!**************************************************!*\
+  !*** ./src/subPage/cloud-clinic/cloud-clinic.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./cloud-clinic.html */ \"./src/subPage/cloud-clinic/cloud-clinic.html\");\n/* harmony import */ var _cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _router_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../router/index */ \"./src/router/index.js\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.css */ \"./src/subPage/cloud-clinic/style.css\");\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_style_css__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (class {\n    mount(container) {\n        container.innerHTML = _cloud_clinic_html__WEBPACK_IMPORTED_MODULE_0___default.a\n        _router_index__WEBPACK_IMPORTED_MODULE_1__[\"default\"].start()\n    }\n});\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/cloud-clinic.js?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/images/bm.png":
+/*!************************************************!*\
+  !*** ./src/subPage/cloud-clinic/images/bm.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/4f8b3fbad5523391e8cdf2736ac48d44.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/bm.png?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/images/om.png":
+/*!************************************************!*\
+  !*** ./src/subPage/cloud-clinic/images/om.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/557fe8fd1c742b161b93561e6cedd128.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/om.png?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/images/problemImg.png":
+/*!********************************************************!*\
+  !*** ./src/subPage/cloud-clinic/images/problemImg.png ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/45f97fe8a86cedfe438ecd404cc7184e.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/problemImg.png?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/images/rule.png":
+/*!**************************************************!*\
+  !*** ./src/subPage/cloud-clinic/images/rule.png ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/08a80dd0d5a67308cd2d898f72ec1616.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/rule.png?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/images/ui.png":
+/*!************************************************!*\
+  !*** ./src/subPage/cloud-clinic/images/ui.png ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("module.exports = __webpack_require__.p + \"imgs/094959ac19bf5826d3b7029fe9d4d7ba.png\";\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/images/ui.png?");
+
+/***/ }),
+
+/***/ "./src/subPage/cloud-clinic/style.css":
+/*!********************************************!*\
+  !*** ./src/subPage/cloud-clinic/style.css ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./style.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\nif (true) {\n  if (!content.locals) {\n    module.hot.accept(\n      /*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./style.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css\",\n      function () {\n        var newContent = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js??ref--4-1!../../../node_modules/postcss-loader/src!./style.css */ \"./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js!./src/subPage/cloud-clinic/style.css\");\n\n        if (typeof newContent === 'string') {\n          newContent = [[module.i, newContent, '']];\n        }\n        \n        update(newContent);\n      }\n    )\n  }\n\n  module.hot.dispose(function() { \n    update();\n  });\n}\n\n//# sourceURL=webpack:///./src/subPage/cloud-clinic/style.css?");
 
 /***/ })
 
